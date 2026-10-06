@@ -1,0 +1,470 @@
+{
+  "version": "0.1.0",
+  "cases": [
+    {
+      "source_id": "24V720",
+      "split": "dev",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V720-extract",
+      "task": "extraction",
+      "complexity": "medium",
+      "title": "Extraire les caractéristiques du rappel",
+      "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+      "fields": {
+        "campaign": "Identifiant NHTSA exact, avec tiret.",
+        "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+        "population": "Nombre total de véhicules potentiellement concernés, entier.",
+        "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+        "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+      },
+      "expected": {
+        "campaign": {
+          "value": "24V-720",
+          "page": 1,
+          "quote": "NHTSA Recall No. : 24V-720",
+          "critical": false
+        },
+        "manufacturer": {
+          "value": "Chrysler (FCA US, LLC)",
+          "page": 1,
+          "quote": "Manufacturer Name : Chrysler (FCA US, LLC)",
+          "critical": false
+        },
+        "population": {
+          "value": 154032,
+          "page": 1,
+          "quote": "Number of potentially involved : 154,032",
+          "critical": true
+        },
+        "defect_percent": {
+          "value": 1,
+          "page": 1,
+          "quote": "Estimated percentage with defect : 1 %",
+          "critical": true
+        },
+        "supplier": {
+          "value": "Samsung SDI America INC",
+          "page": 3,
+          "quote": "Name : Samsung SDI America INC",
+          "critical": false
+        }
+      }
+    },
+    {
+      "source_id": "24V720",
+      "split": "dev",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V720-timeline",
+      "task": "chronology",
+      "complexity": "high",
+      "title": "Distinguer événements et prévisions",
+      "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+      "fields": {
+        "investigation_date": "Date d'ouverture de l'enquête mentionnée dans la chronologie.",
+        "decision_date": "Date de décision du rappel volontaire.",
+        "planned_dealer_date": "Date prévue de notification aux concessionnaires.",
+        "planned_owner_start": "Début de la plage Planned Owner Notification Date.",
+        "actual_owner_date": "Date EFFECTIVE d'envoi aux propriétaires, null si non attestée dans ce document."
+      },
+      "expected": {
+        "investigation_date": {
+          "value": "2024-06-25",
+          "page": 3,
+          "quote": "On June 25, 2024, the FCA US LLC",
+          "critical": true
+        },
+        "decision_date": {
+          "value": "2024-09-20",
+          "page": 3,
+          "quote": "On September 20, 2024, FCA US determined",
+          "critical": true
+        },
+        "planned_dealer_date": {
+          "value": "2024-10-03",
+          "page": 4,
+          "quote": "Planned Dealer Notification Date : OCT 03, 2024 - OCT 03, 2024",
+          "critical": false
+        },
+        "planned_owner_start": {
+          "value": "2024-10-17",
+          "page": 4,
+          "quote": "Planned Owner Notification Date : OCT 17, 2024 - OCT 29, 2024",
+          "critical": false
+        },
+        "actual_owner_date": {
+          "value": null,
+          "page": 4,
+          "quote": "FCA US will notify dealers on or about 10/3/2024 and begin notifying owners on or about 10/17/2024.",
+          "critical": true
+        }
+      }
+    },
+    {
+      "source_id": "24V720",
+      "split": "dev",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V720-summary",
+      "task": "synthesis",
+      "complexity": "high",
+      "title": "Préparer une synthèse qualité sourcée",
+      "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+      "rubric": [
+        {
+          "criterion": "Population et véhicules concernés, sans assimiler population et défauts confirmés",
+          "page": 1,
+          "quote": "Number of potentially involved : 154,032",
+          "weight": 1
+        },
+        {
+          "criterion": "Dégradation du séparateur et risque d'incendie formulés avec prudence",
+          "page": 2,
+          "quote": "In rare circumstances, a battery pack may contain cells with separator damage.",
+          "weight": 1
+        },
+        {
+          "criterion": "Investigation de la cause encore en cours dans cette version",
+          "page": 3,
+          "quote": "Root cause investigation continues.",
+          "weight": 1
+        },
+        {
+          "criterion": "Logiciel puis remplacement de batterie si nécessaire",
+          "page": 4,
+          "quote": "Remedy is a software flash followed by a HV battery replacement if needed.",
+          "weight": 1
+        },
+        {
+          "criterion": "Dates de notification décrites comme prévisionnelles",
+          "page": 4,
+          "quote": "Planned Owner Notification Date : OCT 17, 2024 - OCT 29, 2024",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "source_id": "24V436",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V436-extract",
+      "task": "extraction",
+      "complexity": "medium",
+      "title": "Extraire les caractéristiques du rappel",
+      "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+      "fields": {
+        "campaign": "Identifiant NHTSA exact, avec tiret.",
+        "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+        "population": "Nombre total de véhicules potentiellement concernés, entier.",
+        "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+        "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+      },
+      "expected": {
+        "campaign": {
+          "value": "24V-436",
+          "page": 1,
+          "quote": "NHTSA Recall No. : 24V-436",
+          "critical": false
+        },
+        "manufacturer": {
+          "value": "Chrysler (FCA US, LLC)",
+          "page": 1,
+          "quote": "Manufacturer Name : Chrysler (FCA US, LLC)",
+          "critical": false
+        },
+        "population": {
+          "value": 1033433,
+          "page": 1,
+          "quote": "Number of potentially involved : 1,033,433",
+          "critical": true
+        },
+        "defect_percent": {
+          "value": 100,
+          "page": 1,
+          "quote": "Estimated percentage with defect : 100 %",
+          "critical": true
+        },
+        "supplier": {
+          "value": "Harman",
+          "page": 7,
+          "quote": "Name : Harman",
+          "critical": false
+        }
+      }
+    },
+    {
+      "source_id": "24V436",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V436-timeline",
+      "task": "chronology",
+      "complexity": "high",
+      "title": "Distinguer événements et prévisions",
+      "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+      "fields": {
+        "initial_alert": "Date de notification du problème potentiel à TSRC.",
+        "decision_date": "Date de décision du rappel volontaire.",
+        "actual_durango_date": "Date effective d'envoi des lettres finales aux propriétaires de Dodge Durango 2021-2022.",
+        "latest_pacifica_plan": "Date prévue la plus récente pour les lettres aux propriétaires de Chrysler Pacifica 2021, selon la mise à jour du 30 janvier 2025.",
+        "actual_pacifica_date": "Date effective des lettres FINALES aux propriétaires de Chrysler Pacifica 2021, null si non attestée."
+      },
+      "expected": {
+        "initial_alert": {
+          "value": "2023-10-23",
+          "page": 8,
+          "quote": "On October 23, 2023, the FCA US LLC",
+          "critical": false
+        },
+        "decision_date": {
+          "value": "2024-06-06",
+          "page": 8,
+          "quote": "On June 06, 2024, FCA US determined",
+          "critical": true
+        },
+        "actual_durango_date": {
+          "value": "2024-12-12",
+          "page": 9,
+          "quote": "FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024",
+          "critical": true
+        },
+        "latest_pacifica_plan": {
+          "value": "2025-02-20",
+          "page": 9,
+          "quote": "Pacifica vehicles on or about 02/20/2025",
+          "critical": true
+        },
+        "actual_pacifica_date": {
+          "value": null,
+          "page": 9,
+          "quote": "Pacifica vehicles on or about 02/20/2025",
+          "critical": true
+        }
+      }
+    },
+    {
+      "source_id": "24V436",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "24V436-summary",
+      "task": "synthesis",
+      "complexity": "high",
+      "title": "Préparer une synthèse qualité sourcée",
+      "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+      "rubric": [
+        {
+          "criterion": "Population potentiellement concernée exacte",
+          "page": 1,
+          "quote": "Number of potentially involved : 1,033,433",
+          "weight": 1
+        },
+        {
+          "criterion": "Défaut d'affichage de caméra attribué au logiciel",
+          "page": 7,
+          "quote": "Vehicles with suspect radio software may not display the rearview image during a backing event under certain conditions.",
+          "weight": 1
+        },
+        {
+          "criterion": "Correction logicielle et deux campagnes constructeur",
+          "page": 8,
+          "quote": "The vehicle population will be managed between 2 FCA US campaign ID numbers, 66B and 79B.",
+          "weight": 1
+        },
+        {
+          "criterion": "OTA ou USB selon capacité",
+          "page": 8,
+          "quote": "Vehicles will be updated either via firmware Over-The-Air; if capable, or via USB.",
+          "weight": 1
+        },
+        {
+          "criterion": "Distinction entre envoi Durango réalisé et échéance Pacifica révisée",
+          "page": 9,
+          "quote": "Pacifica vehicles on or about 02/20/2025",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "source_id": "19V627",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "19V627-extract",
+      "task": "extraction",
+      "complexity": "medium",
+      "title": "Extraire les caractéristiques du rappel",
+      "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+      "fields": {
+        "campaign": "Identifiant NHTSA exact, avec tiret.",
+        "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+        "population": "Nombre total de véhicules potentiellement concernés, entier.",
+        "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+        "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+      },
+      "expected": {
+        "campaign": {
+          "value": "19V-627",
+          "page": 1,
+          "quote": "NHTSA Recall No. : 19V-627",
+          "critical": false
+        },
+        "manufacturer": {
+          "value": "Toyota Motor Engineering & Manufacturing",
+          "page": 1,
+          "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing",
+          "critical": false
+        },
+        "population": {
+          "value": 229460,
+          "page": 1,
+          "quote": "Number of potentially involved : 229,460",
+          "critical": true
+        },
+        "defect_percent": {
+          "value": null,
+          "page": 1,
+          "quote": "Estimated percentage with defect : NR",
+          "critical": true
+        },
+        "supplier": {
+          "value": "Joyson Safety Systems Japan K. K.",
+          "page": 3,
+          "quote": "Name : Joyson Safety Systems Japan K. K.",
+          "critical": false
+        }
+      }
+    },
+    {
+      "source_id": "19V627",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "19V627-timeline",
+      "task": "chronology",
+      "complexity": "high",
+      "title": "Distinguer événements et prévisions",
+      "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+      "fields": {
+        "submission_date": "Date de soumission de CETTE version du rapport.",
+        "actual_dealer_date": "Date effective de notification aux distributeurs/concessionnaires, d'après le récit.",
+        "planned_owner_start": "Début de la plage Planned Owner Notification Date.",
+        "investigation_date": "Date d'ouverture de l'enquête : null si absente des quatre pages fournies.",
+        "production_fix_date": "Date de correction en production, null si non renseignée."
+      },
+      "expected": {
+        "submission_date": {
+          "value": "2020-06-01",
+          "page": 1,
+          "quote": "Submission Date : JUN 01, 2020",
+          "critical": false
+        },
+        "actual_dealer_date": {
+          "value": "2019-08-28",
+          "page": 4,
+          "quote": "Notifications to distributors/dealers were sent on August 28, 2019.",
+          "critical": true
+        },
+        "planned_owner_start": {
+          "value": "2019-09-25",
+          "page": 4,
+          "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019",
+          "critical": false
+        },
+        "investigation_date": {
+          "value": null,
+          "page": 4,
+          "quote": "Please see the attached Part 573 Defect Information Report for the full chronology.",
+          "critical": true
+        },
+        "production_fix_date": {
+          "value": null,
+          "page": 4,
+          "quote": "Identify How/When Recall Condition was Corrected in Production : NR",
+          "critical": true
+        }
+      }
+    },
+    {
+      "source_id": "19V627",
+      "split": "pilot",
+      "version": "0.1.0",
+      "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+      "context": "full_report",
+      "input_language": "en",
+      "output_language": "fr",
+      "business_criticality": "high",
+      "id": "19V627-summary",
+      "task": "synthesis",
+      "complexity": "high",
+      "title": "Préparer une synthèse qualité sourcée",
+      "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+      "rubric": [
+        {
+          "criterion": "Population et incertitude sur le pourcentage défectueux",
+          "page": 1,
+          "quote": "Toyota is unable to provide an estimate of the percentage of vehicles to actually contain the defect.",
+          "weight": 1
+        },
+        {
+          "criterion": "Risque de déploiement incorrect à haute température",
+          "page": 3,
+          "quote": "There is a possibility that the air bag may not unfold as designed during inflation under high temperature conditions",
+          "weight": 1
+        },
+        {
+          "criterion": "Remplacement du module ou sous-ensemble de l'airbag passager",
+          "page": 4,
+          "quote": "Dealers will replace the front passenger airbag assembly",
+          "weight": 1
+        },
+        {
+          "criterion": "Chronologie complète absente, renvoi à une pièce jointe",
+          "page": 4,
+          "quote": "Please see the attached Part 573 Defect Information Report for the full chronology.",
+          "weight": 1
+        },
+        {
+          "criterion": "Envoi aux concessionnaires attesté au 28 août 2019",
+          "page": 4,
+          "quote": "Notifications to distributors/dealers were sent on August 28, 2019.",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

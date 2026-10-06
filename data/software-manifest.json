@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "files": {
+    "autoeval/__init__.py": "a081860e52b6112db5d80046bfa8c6dd738fc58446dcae53552b148b7a31dc3b",
+    "autoeval/__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+    "autoeval/cli.py": "fbfee64425696bcf802b2d9b4f5f9d6c4f32eafbd5d90d53bcd0ea60ebb8fa72",
+    "autoeval/core.py": "9f8d05748fd5c67cf58d0d46b61d287c8deb88fb3252fb6ed96243931fb8c3c6",
+    "autoeval/providers.py": "9c5829e806384d59b52a6c989ee89a685e2bade83c2ecec5e1709dd6110b0b99",
+    "autoeval/report.py": "4203a375455c7cb4188475f567d5581132c4129c07bfe83746b7f68d696d2bd2",
+    "autoeval/runner.py": "819a4cc97034fc3f2e50863b0b5fc7ac8d7979dbff0140e20ef309ada202aa23"
+  }
+}

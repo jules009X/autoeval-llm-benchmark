@@ -1,0 +1,4334 @@
+[
+  {
+    "run_id": "20261006T180124Z-ec286f",
+    "split": "dev",
+    "created_at": "2026-10-06T18:01:24.540457+00:00",
+    "status": "completed",
+    "protocol_version": "0.1.0",
+    "models": [
+      {
+        "name": "qwen3:1.7b",
+        "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "2.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "ollama_version": "0.35.1"
+      }
+    ],
+    "corpus_hash": "462a71710a3711d0d6e2016158a24a6699fbf026bb9f509c9d1f7df587e660d2",
+    "cases_hash": "6e9fce099ab89470827147c263c069aea401249f9261c2b9da784015e752f26b",
+    "reference_review": "pending independent human validation",
+    "sources": [
+      {
+        "id": "24V720",
+        "campaign": "24V-720",
+        "document_date": "2024-09-27",
+        "title": "Batteries haute tension — Jeep",
+        "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V720-8602.PDF",
+        "split": "dev",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "9e53f0a0f6c1a35cd336d7e26d4d4576f9856f0b6164a5e0729478501c573e98",
+        "text_sha256": "7aa4d015befc3455fcc392ee0ecb2906947d9874650df87c34788fb52f5f3168",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      },
+      {
+        "id": "24V436",
+        "campaign": "24V-436",
+        "document_date": "2025-01-30",
+        "title": "Caméras de recul — FCA",
+        "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V436-2012.PDF",
+        "split": "pilot",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "04a86ae64f3fbe12eef2dbef246f87aaeb09b2bd15cd44df9d5272efa02dc3ec",
+        "text_sha256": "6e83a29128db6dc28b9b8be5fb0b05ee0bc37fc5bbfe65547a14dc5a7bc8ed30",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      },
+      {
+        "id": "19V627",
+        "campaign": "19V-627",
+        "document_date": "2020-06-01",
+        "title": "Airbags passager — Toyota",
+        "url": "https://static.nhtsa.gov/odi/rcl/2019/RCLRPT-19V627-7873.PDF",
+        "split": "pilot",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "8a4cfc41a1008fbb1881cf543ebad538e51ce16a0c8b6c3c6a0176882ca97722",
+        "text_sha256": "1eb1e7ed62edf72a1f8c255611b99ff7d5d1a8f68e71094cb7c45e5db61160af",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      }
+    ],
+    "cases": [
+      {
+        "source_id": "24V720",
+        "split": "dev",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V720-extract",
+        "task": "extraction",
+        "complexity": "medium",
+        "title": "Extraire les caractéristiques du rappel",
+        "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+        "fields": {
+          "campaign": "Identifiant NHTSA exact, avec tiret.",
+          "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+          "population": "Nombre total de véhicules potentiellement concernés, entier.",
+          "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+          "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+        },
+        "expected": {
+          "campaign": {
+            "value": "24V-720",
+            "page": 1,
+            "quote": "NHTSA Recall No. : 24V-720",
+            "critical": false
+          },
+          "manufacturer": {
+            "value": "Chrysler (FCA US, LLC)",
+            "page": 1,
+            "quote": "Manufacturer Name : Chrysler (FCA US, LLC)",
+            "critical": false
+          },
+          "population": {
+            "value": 154032,
+            "page": 1,
+            "quote": "Number of potentially involved : 154,032",
+            "critical": true
+          },
+          "defect_percent": {
+            "value": 1,
+            "page": 1,
+            "quote": "Estimated percentage with defect : 1 %",
+            "critical": true
+          },
+          "supplier": {
+            "value": "Samsung SDI America INC",
+            "page": 3,
+            "quote": "Name : Samsung SDI America INC",
+            "critical": false
+          }
+        }
+      },
+      {
+        "source_id": "24V720",
+        "split": "dev",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V720-timeline",
+        "task": "chronology",
+        "complexity": "high",
+        "title": "Distinguer événements et prévisions",
+        "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+        "fields": {
+          "investigation_date": "Date d'ouverture de l'enquête mentionnée dans la chronologie.",
+          "decision_date": "Date de décision du rappel volontaire.",
+          "planned_dealer_date": "Date prévue de notification aux concessionnaires.",
+          "planned_owner_start": "Début de la plage Planned Owner Notification Date.",
+          "actual_owner_date": "Date EFFECTIVE d'envoi aux propriétaires, null si non attestée dans ce document."
+        },
+        "expected": {
+          "investigation_date": {
+            "value": "2024-06-25",
+            "page": 3,
+            "quote": "On June 25, 2024, the FCA US LLC",
+            "critical": true
+          },
+          "decision_date": {
+            "value": "2024-09-20",
+            "page": 3,
+            "quote": "On September 20, 2024, FCA US determined",
+            "critical": true
+          },
+          "planned_dealer_date": {
+            "value": "2024-10-03",
+            "page": 4,
+            "quote": "Planned Dealer Notification Date : OCT 03, 2024 - OCT 03, 2024",
+            "critical": false
+          },
+          "planned_owner_start": {
+            "value": "2024-10-17",
+            "page": 4,
+            "quote": "Planned Owner Notification Date : OCT 17, 2024 - OCT 29, 2024",
+            "critical": false
+          },
+          "actual_owner_date": {
+            "value": null,
+            "page": 4,
+            "quote": "FCA US will notify dealers on or about 10/3/2024 and begin notifying owners on or about 10/17/2024.",
+            "critical": true
+          }
+        }
+      },
+      {
+        "source_id": "24V720",
+        "split": "dev",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V720-summary",
+        "task": "synthesis",
+        "complexity": "high",
+        "title": "Préparer une synthèse qualité sourcée",
+        "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+        "rubric": [
+          {
+            "criterion": "Population et véhicules concernés, sans assimiler population et défauts confirmés",
+            "page": 1,
+            "quote": "Number of potentially involved : 154,032",
+            "weight": 1
+          },
+          {
+            "criterion": "Dégradation du séparateur et risque d'incendie formulés avec prudence",
+            "page": 2,
+            "quote": "In rare circumstances, a battery pack may contain cells with separator damage.",
+            "weight": 1
+          },
+          {
+            "criterion": "Investigation de la cause encore en cours dans cette version",
+            "page": 3,
+            "quote": "Root cause investigation continues.",
+            "weight": 1
+          },
+          {
+            "criterion": "Logiciel puis remplacement de batterie si nécessaire",
+            "page": 4,
+            "quote": "Remedy is a software flash followed by a HV battery replacement if needed.",
+            "weight": 1
+          },
+          {
+            "criterion": "Dates de notification décrites comme prévisionnelles",
+            "page": 4,
+            "quote": "Planned Owner Notification Date : OCT 17, 2024 - OCT 29, 2024",
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "run_id": "20261006T180124Z-ec286f",
+        "model": "regex-labels-v1",
+        "provider": "rules",
+        "case_id": "24V720-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "status": "ok",
+        "raw_response": "{\"answers\": {\"campaign\": {\"value\": \"24V-720\", \"page\": 1, \"quote\": \"NHTSA Recall No. : 24V-720\"}, \"manufacturer\": {\"value\": \"Chrysler (FCA US, LLC)\", \"page\": 1, \"quote\": \"Manufacturer Name : Chrysler (FCA US, LLC)\"}, \"population\": {\"value\": 154032, \"page\": 1, \"quote\": \"Number of potentially involved : 154,032\"}, \"defect_percent\": {\"value\": 1, \"page\": 1, \"quote\": \"Estimated percentage with defect : 1\"}, \"supplier\": {\"value\": null, \"page\": null, \"quote\": null}}}",
+        "metrics": {
+          "latency_s": 0.0003277920186519623,
+          "api_cost_eur": 0,
+          "energy_cost_eur": null
+        },
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.8,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "24V-720",
+              "actual": {
+                "value": "24V-720",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 24V-720"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": {
+                "value": "Chrysler (FCA US, LLC)",
+                "page": 1,
+                "quote": "Manufacturer Name : Chrysler (FCA US, LLC)"
+              }
+            },
+            {
+              "field": "population",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 154032,
+              "actual": {
+                "value": 154032,
+                "page": 1,
+                "quote": "Number of potentially involved : 154,032"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 1,
+              "actual": {
+                "value": 1,
+                "page": 1,
+                "quote": "Estimated percentage with defect : 1"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Samsung SDI America INC",
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180124Z-ec286f",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V720-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "1235097ab14ade792ee500d3fcaffd99007dd12b7f3bacda349bb71ec2e96b75",
+        "started_at": "2026-10-06T18:01:24.558133+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"24V-720\",\n    \"manufacturer\": \"Chrysler (FCA US, LLC)\",\n    \"population\": 154032,\n    \"defect_percent\": 1,\n    \"supplier\": \"Samsung SDI America INC\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 5.064705958007835,
+          "first_content_chunk_s": 4.143918291083537,
+          "input_tokens": 2191,
+          "output_tokens": 69,
+          "generation_tokens_per_s": 74.82229704451926,
+          "load_s": 1.787497792,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:01:29.622715Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 5064113208,
+          "load_duration": 1787497792,
+          "prompt_eval_count": 2191,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 2340651000,
+          "eval_count": 69,
+          "eval_duration": 922185000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "24V-720",
+              "actual": "24V-720"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": "Chrysler (FCA US, LLC)"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 154032,
+              "actual": 154032
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 1,
+              "actual": 1
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Samsung SDI America INC",
+              "actual": "Samsung SDI America INC"
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180124Z-ec286f",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V720-summary",
+        "task": "synthesis",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "2e585334ec4647db600003446c8d48d38543e5ad658881a4c79a169beedcb81a",
+        "started_at": "2026-10-06T18:01:29.623314+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel de sécurité (Part 573) concernant les véhicules Jeep Wrangler et Grand Cherokee PHEVs est déclaré par Chrysler (FCA US, LLC) en réponse à des incidents de feu potentiels liés à des cellules de batterie endommagées. Le problème est résumé par la présence de cellules dans les pack de batterie qui sont sensibles à la dégradation des séparateurs. Le rappel est prévu pour les véhicules produits entre juillet 2020 et novembre 2023. La solution consiste à un rappel volontaire avec un mise à jour du module de contrôle de la batterie et une remplacement de la batterie si nécessaire. Les notifications sont prévues pour les concessionnaires et les propriétaires, avec des dates spécifiques. Le rapport indique que le remède n'est pas efficace pour détecter certains anomalies, et que l'investigation continue. Les limites du document incluent la non mention de la cause exacte et des données spécifiques des marchés individuels.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Les véhicules concernés sont ceux produits entre juillet 2020 et novembre 2023, et le problème est lié à des cellules de batterie sensibles à la dégradation des séparateurs.\"\n    },\n    {\n      \"page\": 3,\n      \"quote\": \"FCA US a déterminé que le remède B9A n'est pas efficace pour détecter certaines anomalies dans la batterie, et que l'investigation continue.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 6.470791667001322,
+          "first_content_chunk_s": 1.7261303750565276,
+          "input_tokens": 2080,
+          "output_tokens": 370,
+          "generation_tokens_per_s": 77.97997305686553,
+          "load_s": 0.001803667,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:01:36.093985Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 6470014042,
+          "load_duration": 1803667,
+          "prompt_eval_count": 2080,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 1641760000,
+          "eval_count": 370,
+          "eval_duration": 4744808000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 152,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180124Z-ec286f",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V720-timeline",
+        "task": "chronology",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "99243ca16b0d480b4b490a4c352dfa172d774a710f9c800555cd2d9903d9b6cf",
+        "started_at": "2026-10-06T18:01:36.095447+00:00",
+        "status": "error",
+        "error": "RuntimeError: prediction aborted, token repeat limit reached",
+        "raw_response": "",
+        "metrics": {
+          "latency_s": 4.784271834068932,
+          "api_cost_eur": 0,
+          "energy_cost_eur": null
+        }
+      }
+    ],
+    "aggregates": [
+      {
+        "model": "qwen3:1.7b",
+        "task": "chronology",
+        "n": 1,
+        "distinct_cases": 1,
+        "error_rate": 1.0,
+        "format_rate": 0.0,
+        "field_accuracy": 0,
+        "critical_errors": 0,
+        "latency_median_s": 4.784271834068932,
+        "mean_repeat_range": null
+      },
+      {
+        "model": "qwen3:1.7b",
+        "task": "extraction",
+        "n": 1,
+        "distinct_cases": 1,
+        "error_rate": 0.0,
+        "format_rate": 0.0,
+        "field_accuracy": 0,
+        "critical_errors": 2,
+        "latency_median_s": 5.064705958007835,
+        "mean_repeat_range": null
+      },
+      {
+        "model": "qwen3:1.7b",
+        "task": "synthesis",
+        "n": 1,
+        "distinct_cases": 1,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": null,
+        "critical_errors": 0,
+        "latency_median_s": 6.470791667001322,
+        "mean_repeat_range": null
+      },
+      {
+        "model": "regex-labels-v1",
+        "task": "extraction",
+        "n": 1,
+        "distinct_cases": 1,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": 0.8,
+        "critical_errors": 0,
+        "latency_median_s": 0.0003277920186519623,
+        "mean_repeat_range": null
+      }
+    ],
+    "environment": {
+      "python": "3.12.6",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "machine": "arm64"
+    }
+  },
+  {
+    "run_id": "20261006T180827Z-f6f92b",
+    "split": "pilot",
+    "created_at": "2026-10-06T18:08:27.191645+00:00",
+    "status": "completed",
+    "protocol_version": "0.1.0",
+    "models": [
+      {
+        "name": "qwen3:1.7b",
+        "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "2.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "ollama_version": "0.35.1"
+      },
+      {
+        "name": "llama3.2:3b",
+        "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "3.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 3072
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ],
+        "ollama_version": "0.35.1"
+      }
+    ],
+    "corpus_hash": "462a71710a3711d0d6e2016158a24a6699fbf026bb9f509c9d1f7df587e660d2",
+    "cases_hash": "6e9fce099ab89470827147c263c069aea401249f9261c2b9da784015e752f26b",
+    "reference_review": "pending independent human validation",
+    "sources": [
+      {
+        "id": "24V720",
+        "campaign": "24V-720",
+        "document_date": "2024-09-27",
+        "title": "Batteries haute tension — Jeep",
+        "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V720-8602.PDF",
+        "split": "dev",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "9e53f0a0f6c1a35cd336d7e26d4d4576f9856f0b6164a5e0729478501c573e98",
+        "text_sha256": "7aa4d015befc3455fcc392ee0ecb2906947d9874650df87c34788fb52f5f3168",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      },
+      {
+        "id": "24V436",
+        "campaign": "24V-436",
+        "document_date": "2025-01-30",
+        "title": "Caméras de recul — FCA",
+        "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V436-2012.PDF",
+        "split": "pilot",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "04a86ae64f3fbe12eef2dbef246f87aaeb09b2bd15cd44df9d5272efa02dc3ec",
+        "text_sha256": "6e83a29128db6dc28b9b8be5fb0b05ee0bc37fc5bbfe65547a14dc5a7bc8ed30",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      },
+      {
+        "id": "19V627",
+        "campaign": "19V-627",
+        "document_date": "2020-06-01",
+        "title": "Airbags passager — Toyota",
+        "url": "https://static.nhtsa.gov/odi/rcl/2019/RCLRPT-19V627-7873.PDF",
+        "split": "pilot",
+        "retrieved_at": "2026-10-06",
+        "origin": "NHTSA / manufacturer submission",
+        "synthetic": false,
+        "sha256": "8a4cfc41a1008fbb1881cf543ebad538e51ce16a0c8b6c3c6a0176882ca97722",
+        "text_sha256": "1eb1e7ed62edf72a1f8c255611b99ff7d5d1a8f68e71094cb7c45e5db61160af",
+        "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+      }
+    ],
+    "cases": [
+      {
+        "source_id": "24V436",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V436-extract",
+        "task": "extraction",
+        "complexity": "medium",
+        "title": "Extraire les caractéristiques du rappel",
+        "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+        "fields": {
+          "campaign": "Identifiant NHTSA exact, avec tiret.",
+          "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+          "population": "Nombre total de véhicules potentiellement concernés, entier.",
+          "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+          "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+        },
+        "expected": {
+          "campaign": {
+            "value": "24V-436",
+            "page": 1,
+            "quote": "NHTSA Recall No. : 24V-436",
+            "critical": false
+          },
+          "manufacturer": {
+            "value": "Chrysler (FCA US, LLC)",
+            "page": 1,
+            "quote": "Manufacturer Name : Chrysler (FCA US, LLC)",
+            "critical": false
+          },
+          "population": {
+            "value": 1033433,
+            "page": 1,
+            "quote": "Number of potentially involved : 1,033,433",
+            "critical": true
+          },
+          "defect_percent": {
+            "value": 100,
+            "page": 1,
+            "quote": "Estimated percentage with defect : 100 %",
+            "critical": true
+          },
+          "supplier": {
+            "value": "Harman",
+            "page": 7,
+            "quote": "Name : Harman",
+            "critical": false
+          }
+        }
+      },
+      {
+        "source_id": "24V436",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V436-timeline",
+        "task": "chronology",
+        "complexity": "high",
+        "title": "Distinguer événements et prévisions",
+        "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+        "fields": {
+          "initial_alert": "Date de notification du problème potentiel à TSRC.",
+          "decision_date": "Date de décision du rappel volontaire.",
+          "actual_durango_date": "Date effective d'envoi des lettres finales aux propriétaires de Dodge Durango 2021-2022.",
+          "latest_pacifica_plan": "Date prévue la plus récente pour les lettres aux propriétaires de Chrysler Pacifica 2021, selon la mise à jour du 30 janvier 2025.",
+          "actual_pacifica_date": "Date effective des lettres FINALES aux propriétaires de Chrysler Pacifica 2021, null si non attestée."
+        },
+        "expected": {
+          "initial_alert": {
+            "value": "2023-10-23",
+            "page": 8,
+            "quote": "On October 23, 2023, the FCA US LLC",
+            "critical": false
+          },
+          "decision_date": {
+            "value": "2024-06-06",
+            "page": 8,
+            "quote": "On June 06, 2024, FCA US determined",
+            "critical": true
+          },
+          "actual_durango_date": {
+            "value": "2024-12-12",
+            "page": 9,
+            "quote": "FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024",
+            "critical": true
+          },
+          "latest_pacifica_plan": {
+            "value": "2025-02-20",
+            "page": 9,
+            "quote": "Pacifica vehicles on or about 02/20/2025",
+            "critical": true
+          },
+          "actual_pacifica_date": {
+            "value": null,
+            "page": 9,
+            "quote": "Pacifica vehicles on or about 02/20/2025",
+            "critical": true
+          }
+        }
+      },
+      {
+        "source_id": "24V436",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "24V436-summary",
+        "task": "synthesis",
+        "complexity": "high",
+        "title": "Préparer une synthèse qualité sourcée",
+        "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+        "rubric": [
+          {
+            "criterion": "Population potentiellement concernée exacte",
+            "page": 1,
+            "quote": "Number of potentially involved : 1,033,433",
+            "weight": 1
+          },
+          {
+            "criterion": "Défaut d'affichage de caméra attribué au logiciel",
+            "page": 7,
+            "quote": "Vehicles with suspect radio software may not display the rearview image during a backing event under certain conditions.",
+            "weight": 1
+          },
+          {
+            "criterion": "Correction logicielle et deux campagnes constructeur",
+            "page": 8,
+            "quote": "The vehicle population will be managed between 2 FCA US campaign ID numbers, 66B and 79B.",
+            "weight": 1
+          },
+          {
+            "criterion": "OTA ou USB selon capacité",
+            "page": 8,
+            "quote": "Vehicles will be updated either via firmware Over-The-Air; if capable, or via USB.",
+            "weight": 1
+          },
+          {
+            "criterion": "Distinction entre envoi Durango réalisé et échéance Pacifica révisée",
+            "page": 9,
+            "quote": "Pacifica vehicles on or about 02/20/2025",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "source_id": "19V627",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "19V627-extract",
+        "task": "extraction",
+        "complexity": "medium",
+        "title": "Extraire les caractéristiques du rappel",
+        "instruction": "Extrais les caractéristiques du rappel. Ne confonds pas la population potentiellement concernée et le nombre de défauts confirmés.",
+        "fields": {
+          "campaign": "Identifiant NHTSA exact, avec tiret.",
+          "manufacturer": "Nom exact du constructeur dans l'en-tête.",
+          "population": "Nombre total de véhicules potentiellement concernés, entier.",
+          "defect_percent": "Pourcentage estimé défectueux, nombre entre 0 et 100, ou null si NR.",
+          "supplier": "Nom exact du fabricant de composant dans Supplier Identification."
+        },
+        "expected": {
+          "campaign": {
+            "value": "19V-627",
+            "page": 1,
+            "quote": "NHTSA Recall No. : 19V-627",
+            "critical": false
+          },
+          "manufacturer": {
+            "value": "Toyota Motor Engineering & Manufacturing",
+            "page": 1,
+            "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing",
+            "critical": false
+          },
+          "population": {
+            "value": 229460,
+            "page": 1,
+            "quote": "Number of potentially involved : 229,460",
+            "critical": true
+          },
+          "defect_percent": {
+            "value": null,
+            "page": 1,
+            "quote": "Estimated percentage with defect : NR",
+            "critical": true
+          },
+          "supplier": {
+            "value": "Joyson Safety Systems Japan K. K.",
+            "page": 3,
+            "quote": "Name : Joyson Safety Systems Japan K. K.",
+            "critical": false
+          }
+        }
+      },
+      {
+        "source_id": "19V627",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "19V627-timeline",
+        "task": "chronology",
+        "complexity": "high",
+        "title": "Distinguer événements et prévisions",
+        "instruction": "Reconstitue les dates demandées en distinguant ce qui était prévu de ce qui est attesté comme réalisé. Les mises à jour ont leur propre date.",
+        "fields": {
+          "submission_date": "Date de soumission de CETTE version du rapport.",
+          "actual_dealer_date": "Date effective de notification aux distributeurs/concessionnaires, d'après le récit.",
+          "planned_owner_start": "Début de la plage Planned Owner Notification Date.",
+          "investigation_date": "Date d'ouverture de l'enquête : null si absente des quatre pages fournies.",
+          "production_fix_date": "Date de correction en production, null si non renseignée."
+        },
+        "expected": {
+          "submission_date": {
+            "value": "2020-06-01",
+            "page": 1,
+            "quote": "Submission Date : JUN 01, 2020",
+            "critical": false
+          },
+          "actual_dealer_date": {
+            "value": "2019-08-28",
+            "page": 4,
+            "quote": "Notifications to distributors/dealers were sent on August 28, 2019.",
+            "critical": true
+          },
+          "planned_owner_start": {
+            "value": "2019-09-25",
+            "page": 4,
+            "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019",
+            "critical": false
+          },
+          "investigation_date": {
+            "value": null,
+            "page": 4,
+            "quote": "Please see the attached Part 573 Defect Information Report for the full chronology.",
+            "critical": true
+          },
+          "production_fix_date": {
+            "value": null,
+            "page": 4,
+            "quote": "Identify How/When Recall Condition was Corrected in Production : NR",
+            "critical": true
+          }
+        }
+      },
+      {
+        "source_id": "19V627",
+        "split": "pilot",
+        "version": "0.1.0",
+        "annotation_status": "AI-prepared, source-checked; independent human validation pending",
+        "context": "full_report",
+        "input_language": "en",
+        "output_language": "fr",
+        "business_criticality": "high",
+        "id": "19V627-summary",
+        "task": "synthesis",
+        "complexity": "high",
+        "title": "Préparer une synthèse qualité sourcée",
+        "instruction": "Prépare une synthèse pour une revue qualité : périmètre, problème rapporté, action corrective, état des notifications et limites documentaires. Ne formule pas de conseil actuel à un propriétaire.",
+        "rubric": [
+          {
+            "criterion": "Population et incertitude sur le pourcentage défectueux",
+            "page": 1,
+            "quote": "Toyota is unable to provide an estimate of the percentage of vehicles to actually contain the defect.",
+            "weight": 1
+          },
+          {
+            "criterion": "Risque de déploiement incorrect à haute température",
+            "page": 3,
+            "quote": "There is a possibility that the air bag may not unfold as designed during inflation under high temperature conditions",
+            "weight": 1
+          },
+          {
+            "criterion": "Remplacement du module ou sous-ensemble de l'airbag passager",
+            "page": 4,
+            "quote": "Dealers will replace the front passenger airbag assembly",
+            "weight": 1
+          },
+          {
+            "criterion": "Chronologie complète absente, renvoi à une pièce jointe",
+            "page": 4,
+            "quote": "Please see the attached Part 573 Defect Information Report for the full chronology.",
+            "weight": 1
+          },
+          {
+            "criterion": "Envoi aux concessionnaires attesté au 28 août 2019",
+            "page": 4,
+            "quote": "Notifications to distributors/dealers were sent on August 28, 2019.",
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "regex-labels-v1",
+        "provider": "rules",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "status": "ok",
+        "raw_response": "{\"answers\": {\"campaign\": {\"value\": \"24V-436\", \"page\": 1, \"quote\": \"NHTSA Recall No. : 24V-436\"}, \"manufacturer\": {\"value\": \"Chrysler (FCA US, LLC)\", \"page\": 1, \"quote\": \"Manufacturer Name : Chrysler (FCA US, LLC)\"}, \"population\": {\"value\": 1033433, \"page\": 1, \"quote\": \"Number of potentially involved : 1,033,433\"}, \"defect_percent\": {\"value\": 100, \"page\": 1, \"quote\": \"Estimated percentage with defect : 100\"}, \"supplier\": {\"value\": null, \"page\": null, \"quote\": null}}}",
+        "metrics": {
+          "latency_s": 0.00031441706232726574,
+          "api_cost_eur": 0,
+          "energy_cost_eur": null
+        },
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.8,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "24V-436",
+              "actual": {
+                "value": "24V-436",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 24V-436"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": {
+                "value": "Chrysler (FCA US, LLC)",
+                "page": 1,
+                "quote": "Manufacturer Name : Chrysler (FCA US, LLC)"
+              }
+            },
+            {
+              "field": "population",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 1033433,
+              "actual": {
+                "value": 1033433,
+                "page": 1,
+                "quote": "Number of potentially involved : 1,033,433"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 100,
+              "actual": {
+                "value": 100,
+                "page": 1,
+                "quote": "Estimated percentage with defect : 100"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Harman",
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "regex-labels-v1",
+        "provider": "rules",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "status": "ok",
+        "raw_response": "{\"answers\": {\"campaign\": {\"value\": \"19V-627\", \"page\": 1, \"quote\": \"NHTSA Recall No. : 19V-627\"}, \"manufacturer\": {\"value\": \"Toyota Motor Engineering & Manufacturing\", \"page\": 1, \"quote\": \"Manufacturer Name : Toyota Motor Engineering & Manufacturing\"}, \"population\": {\"value\": 229460, \"page\": 1, \"quote\": \"Number of potentially involved : 229,460\"}, \"defect_percent\": {\"value\": null, \"page\": 1, \"quote\": \"Estimated percentage with defect : NR\"}, \"supplier\": {\"value\": null, \"page\": null, \"quote\": null}}}",
+        "metrics": {
+          "latency_s": 2.2249994799494743e-05,
+          "api_cost_eur": 0,
+          "energy_cost_eur": null
+        },
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.8,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "19V-627",
+              "actual": {
+                "value": "19V-627",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 19V-627"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": {
+                "value": "Toyota Motor Engineering & Manufacturing",
+                "page": 1,
+                "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing"
+              }
+            },
+            {
+              "field": "population",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 229460,
+              "actual": {
+                "value": 229460,
+                "page": 1,
+                "quote": "Number of potentially involved : 229,460"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": true,
+              "quote_valid": true,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Estimated percentage with defect : NR"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:08:27.215238+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"Submission Date : JUN 01, 2020\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-10-31\",\n      \"page\": 1,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 1,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"NR\"\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"NR\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 7.0167918340303,
+          "first_content_chunk_s": 3.946689000003971,
+          "input_tokens": 2157,
+          "output_tokens": 242,
+          "generation_tokens_per_s": 78.82191848641071,
+          "load_s": 2.110636625,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:08:34.231028Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 7015246458,
+          "load_duration": 2110636625,
+          "prompt_eval_count": 2157,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 1804943000,
+          "eval_count": 242,
+          "eval_duration": 3070212000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "actual_dealer_date"
+          ],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "Submission Date : JUN 01, 2020"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-10-31",
+                "page": 1,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": false,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 1,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "NR"
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "NR"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:08:34.234538+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel de sécurité (Part 573) concernant les airbags frontaux de Toyota et Pontiac est daté du 1er juin 2020. Il déclare que des véhicules produits entre 2002 et 2007 sont concernés, mais que le pourcentage exact des véhicules affectés est non renseigné. Le problème réside dans un inflateur d'airbag alternatif, installé comme remplacement sous un rappel antérieur, qui peut ne pas se déplier correctement sous des conditions de température élevée, entraînant un risque de déchirage de l'airbag ou de dégradation du bag plate. Toyota et GM ont mis en place un programme de notification et de remplacement des composants. Les notifications aux propriétaires seront déclenchées en fin de octobre 2019, avec des dates précises pour les distributeurs et les propriétaires. Le rapport mentionne que le remplacement implique la substitution d'un composant amélioré, mais ne précise pas le pourcentage exact des véhicules concernés.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Le rapport indique que le problème affecte des véhicules produits entre 2002 et 2007, avec un pourcentage exact non renseigné.\"\n    },\n    {\n      \"page\": 4,\n      \"quote\": \"Les notifications aux propriétaires seront déclenchées en fin de octobre 2019, avec des dates précises pour les distributeurs et les propriétaires.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 6.2992227911017835,
+          "first_content_chunk_s": 1.7274119580397382,
+          "input_tokens": 2034,
+          "output_tokens": 366,
+          "generation_tokens_per_s": 80.05951528119593,
+          "load_s": 0.007157541,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:08:40.534125Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 6297436416,
+          "load_duration": 7157541,
+          "prompt_eval_count": 2034,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 1607849000,
+          "eval_count": 366,
+          "eval_duration": 4571599000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 145,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:08:40.534782+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"24V-436\",\n    \"manufacturer\": \"Chrysler (FCA US, LLC)\",\n    \"population\": 1033433,\n    \"defect_percent\": 100,\n    \"supplier\": \"Harman\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 5.852000375045463,
+          "first_content_chunk_s": 4.574162999982946,
+          "input_tokens": 4884,
+          "output_tokens": 69,
+          "generation_tokens_per_s": 54.01250272019488,
+          "load_s": 0.002028542,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:08:46.386664Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 5851510292,
+          "load_duration": 2028542,
+          "prompt_eval_count": 4884,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4494625000,
+          "eval_count": 69,
+          "eval_duration": 1277482000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "24V-436",
+              "actual": "24V-436"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": "Chrysler (FCA US, LLC)"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 1033433,
+              "actual": 1033433
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 100,
+              "actual": 100
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Harman",
+              "actual": "Harman"
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:08:46.387963+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"initial_alert\": {\n      \"value\": \"04/13/2021\",\n      \"page\": 1,\n      \"quote\": \"Le suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced.\"\n    },\n    \"decision_date\": {\n      \"value\": \"06/06/2024\",\n      \"page\": 8,\n      \"quote\": \"On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles.\"\n    },\n    \"actual_durango_date\": {\n      \"value\": \"12/12/2024\",\n      \"page\": 8,\n      \"quote\": \"FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024\"\n    },\n    \"latest_pacifica_plan\": {\n      \"value\": \"01/30/2025\",\n      \"page\": 8,\n      \"quote\": \"01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"\n    },\n    \"actual_pacifica_date\": {\n      \"value\": \"NR\",\n      \"page\": 8,\n      \"quote\": \"NR - Not Reported\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 10.11175716703292,
+          "first_content_chunk_s": 4.661055875010788,
+          "input_tokens": 4944,
+          "output_tokens": 365,
+          "generation_tokens_per_s": 66.96778317556458,
+          "load_s": 0.002142666,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:08:56.499605Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 10110571125,
+          "load_duration": 2142666,
+          "prompt_eval_count": 4944,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4527659000,
+          "eval_count": 365,
+          "eval_duration": 5450382000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "decision_date",
+            "actual_durango_date",
+            "latest_pacifica_plan",
+            "actual_pacifica_date"
+          ],
+          "details": [
+            {
+              "field": "initial_alert",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2023-10-23",
+              "actual": {
+                "value": "04/13/2021",
+                "page": 1,
+                "quote": "Le suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced."
+              }
+            },
+            {
+              "field": "decision_date",
+              "correct": false,
+              "quote_valid": true,
+              "expected": "2024-06-06",
+              "actual": {
+                "value": "06/06/2024",
+                "page": 8,
+                "quote": "On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles."
+              }
+            },
+            {
+              "field": "actual_durango_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2024-12-12",
+              "actual": {
+                "value": "12/12/2024",
+                "page": 8,
+                "quote": "FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024"
+              }
+            },
+            {
+              "field": "latest_pacifica_plan",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2025-02-20",
+              "actual": {
+                "value": "01/30/2025",
+                "page": 8,
+                "quote": "01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025."
+              }
+            },
+            {
+              "field": "actual_pacifica_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": "NR",
+                "page": 8,
+                "quote": "NR - Not Reported"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:08:56.500499+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel automobiliste concernant le problème de la mise en évidence du signal de caméra arrière non fonctionnelle dans certains véhicules 2022-2023 est structuré en plusieurs parties. Le problème est lié à des logiciels de radio qui peuvent empêcher le signal de caméra arrière de passer à l'écran. Le rappel est volontaire, visant à mettre à jour le logiciel des véhicules concernés. Les dates de notification sont détaillées, et les véhicules affectés sont classés par modèle et année. Le rapport mentionne que le logiciel correctif respecte les normes FMVSS 111 concernant la visibilité arrière. Les limites documentaires incluent les données de production et les informations de fabrication, mais pas les conséquences réelles sur les propriétaires.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Les véhicules 2022-2023 Ram 1500, 2500, 3500, ProMaster, Dodge Durango, Jeep Compass, Grand Cherokee, Grand Cherokee L, Wagoneer/Grand Wagoneer, Chrysler Pacifica et Voyager ont été affectés par ce problème.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"Le rappel est volontaire, visant à mettre à jour le logiciel des véhicules concernés. Les véhicules seront mis à jour soit par firmware Over-The-Air, soit par USB.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 9.996739667025395,
+          "first_content_chunk_s": 4.586970083997585,
+          "input_tokens": 4773,
+          "output_tokens": 348,
+          "generation_tokens_per_s": 64.33168529605054,
+          "load_s": 0.001931292,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:09:06.497028Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 9996122250,
+          "load_duration": 1931292,
+          "prompt_eval_count": 4773,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4359051000,
+          "eval_count": 348,
+          "eval_duration": 5409465000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 117,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:09:06.497875+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"19V-627\",\n    \"manufacturer\": \"Toyota Motor Engineering & Manufacturing\",\n    \"population\": 229460,\n    \"defect_percent\": null,\n    \"supplier\": \"Joyson Safety Systems Japan K. K.\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 2.8883292080136016,
+          "first_content_chunk_s": 2.0290712079731748,
+          "input_tokens": 2145,
+          "output_tokens": 68,
+          "generation_tokens_per_s": 79.09892367302831,
+          "load_s": 0.002199,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:09:09.386177Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 2887491500,
+          "load_duration": 2199000,
+          "prompt_eval_count": 2145,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 1707059000,
+          "eval_count": 68,
+          "eval_duration": 859683000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "19V-627",
+              "actual": "19V-627"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": "Toyota Motor Engineering & Manufacturing"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 229460,
+              "actual": 229460
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": null
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": "Joyson Safety Systems Japan K. K."
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:09:09.386852+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"The information contained in this report was submitted pursuant to 49 CFR §573\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-08-28\",\n      \"page\": 4,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 4,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": null\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": null\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 12.630182624910958,
+          "first_content_chunk_s": 5.557769750012085,
+          "input_tokens": 2045,
+          "output_tokens": 218,
+          "generation_tokens_per_s": 0.19833495674910814,
+          "load_s": 1.964779583,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:27:34.096005Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 12629150916,
+          "load_duration": 1964779583,
+          "prompt_eval_count": 2045,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 3582917000,
+          "eval_count": 218,
+          "eval_duration": 1099150666999
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 1.0,
+          "quote_validity": 0.6,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "The information contained in this report was submitted pursuant to 49 CFR §573"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-08-28",
+                "page": 4,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 4,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:27:34.098211+00:00",
+        "raw_response": "{\"summary\": \"Le rapport de sécurité Toyota Motor Engineering & Manufacturing (2020) indique que 229 460 véhicules Toyota Corolla, Corolla Matrix et Pontiac Vibe (2003-2008) sont affectés par un problème de sécurité lié à des inflateurs d'airbags Takata. Le problème peut entraîner des dommages à l'airbag ou à la plaque de support, créant un risque pour la sécurité des occupants en cas de crash. Les propriétaires de ces véhicules seront notifiés et invités à réparer leur véhicule à un concessionnaire Toyota. Le remède consiste à remplacer l'airbag ou la plaque de support par un nouveau modèle amélioré.\", \"citations\": [{\"page\":1,\"quote\":\"The information contained in this report was submitted pursuant to 49 CFR §573\"}]}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 7.270255040959455,
+          "first_content_chunk_s": 3.2667511249892414,
+          "input_tokens": 1919,
+          "output_tokens": 189,
+          "generation_tokens_per_s": 47.25928644978738,
+          "load_s": 0.005268625,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:27:41.367505Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 7267829125,
+          "load_duration": 5268625,
+          "prompt_eval_count": 1919,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 3162858000,
+          "eval_count": 189,
+          "eval_duration": 3999214000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 95,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:27:41.372575+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": {\n      \"value\": \"24V-436\",\n      \"page\": 1,\n      \"quote\": \"NHTSA Recall No. : 24V-436\"\n    },\n    \"manufacturer\": {\n      \"value\": \"Chrysler (FCA US, LLC)\",\n      \"page\": 1,\n      \"quote\": \"Manufacturer Name : Chrysler (FCA US, LLC)\"\n    },\n    \"population\": {\n      \"value\": \"1,033,433\",\n      \"page\": 1,\n      \"quote\": \"Number of potentially involved : 1,033,433\"\n    },\n    \"defect_percent\": {\n      \"value\": \"100\",\n      \"page\": 1,\n      \"quote\": \"Estimated percentage with defect : 100 %\"\n    },\n    \"supplier\": {\n      \"value\": \"Harman\",\n      \"page\": 7,\n      \"quote\": \"Component Manufacturer   Name : Harman\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 12.759068084065802,
+          "first_content_chunk_s": 8.187018417054787,
+          "input_tokens": 4335,
+          "output_tokens": 210,
+          "generation_tokens_per_s": 45.930331997562625,
+          "load_s": 0.005501708,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:27:54.132398Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 12755907333,
+          "load_duration": 5501708,
+          "prompt_eval_count": 4335,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 8002635000,
+          "eval_count": 210,
+          "eval_duration": 4572142000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.6,
+          "quote_validity": 1.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "24V-436",
+              "actual": {
+                "value": "24V-436",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 24V-436"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": {
+                "value": "Chrysler (FCA US, LLC)",
+                "page": 1,
+                "quote": "Manufacturer Name : Chrysler (FCA US, LLC)"
+              }
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": true,
+              "expected": 1033433,
+              "actual": {
+                "value": "1,033,433",
+                "page": 1,
+                "quote": "Number of potentially involved : 1,033,433"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": true,
+              "expected": 100,
+              "actual": {
+                "value": "100",
+                "page": 1,
+                "quote": "Estimated percentage with defect : 100 %"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Harman",
+              "actual": {
+                "value": "Harman",
+                "page": 7,
+                "quote": "Component Manufacturer   Name : Harman"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:27:54.133691+00:00",
+        "raw_response": "{\"answers\":{\"initial_alert\":\"2021-04-13\",\"page\":1,\"quote\":\"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_durango_date\":\"2022-12-09\",\"page\":1,\"quote\":\"The suspect population began on July 13, 2020, when the first suspect 2021 MY vehicle was produced, and ended on December 9, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"latest_pacifica_plan\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_pacifica_date\":\"2023-09-14\",\"page\":1,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"initial_alert\":\"2021-04-13\",\"page\":2,\"quote\":\"The suspect population began on April 14, 2021, when the first suspect 2022 MY vehicle was produced, and ended on December 7, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_durango_date\":\"2022-12-09\",\"page\":2,\"quote\":\"The suspect population began on July 13, 2020, when the first suspect 2021 MY vehicle was produced, and ended on December 9, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"latest_pacifica_plan\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_pacifica_date\":\"2023-09-14\",\"page\":2,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"initial_alert\":\"2021-04-21\",\"page\":3,\"quote\":\"The suspect population began on April 21, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 25, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_durango_date\":\"2022-12-09\",\"page\":3,\"quote\":\"The suspect population began on April 21, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 25, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"latest_pacifica_plan\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_pacifica_date\":\"2023-09-14\",\"page\":3,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"initial_alert\":\"2021-05-17\",\"page\":4,\"quote\":\"The suspect population began on May 17, 2021, when the first suspect 2022 MY vehicle was produced, and ended on October 23, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_durango_date\":\"2022-12-09\",\"page\":4,\"quote\":\"The suspect population began on May 17, 2021, when the first suspect 2022 MY vehicle was produced, and ended on October 23, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"latest_pacifica_plan\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_pacifica_date\":\"2023-09-14\",\"page\":4,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"initial_alert\":\"2021-02-24\",\"page\":5,\"quote\":\"The suspect population began on February 24, 2021, when the first suspect",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 39.28581529203802,
+          "first_content_chunk_s": 7.940723542007618,
+          "input_tokens": 4388,
+          "output_tokens": 1400,
+          "generation_tokens_per_s": 44.66512703846855,
+          "load_s": 0.005188084,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "length",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:28:33.419125Z",
+          "done": true,
+          "done_reason": "length",
+          "total_duration": 39284852250,
+          "load_duration": 5188084,
+          "prompt_eval_count": 4388,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 7736093000,
+          "eval_count": 1400,
+          "eval_duration": 31344364000
+        },
+        "status": "truncated",
+        "score": {
+          "json_valid": false,
+          "schema_valid": false,
+          "field_accuracy": null,
+          "quote_validity": null,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "error": "invalid_json"
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:28:33.420772+00:00",
+        "raw_response": "{\n  \"summary\": \"Le rapport automobile historique rapporte une faute de conception dans les systèmes de vision arrière des véhicules Chrysler, Ram et Jeep, qui peut empêcher la vision arrière de s'afficher sur l'écran de navigation. La faute a été détectée en octobre 2023 et un rappel volontaire a été lancé en janvier 2025 pour mettre à jour le logiciel de radio. Les propriétaires affectés seront contactés par lettre et invités à apporter leur véhicule au dépanneur pour la mise à jour. Le rapport indique que la faute a pu causer un risque de blessure pour les personnes extérieurs au véhicule.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Some 2022 MY Ram 1500 vehicles may have been built with radio software that may prevent the rearview camera signal from passing through to the media screen.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"On October 23, 2023, the FCA US LLC (\\\"FCA US\\\") Technical Safety and Regulatory Compliance (\\\"TSRC\\\") organization was notified of a potential issue related to rearview cameras not displaying in some 2022 MY Ram 1500, 2022 MY Ram 2500, 2022 MY Ram 3500, 2022-2023 MY Ram ProMaster, 2021-2022 MY Dodge Durango, 2022-2023 MY Jeep Compass, 2022-2023 MY Jeep Grand Cherokee, 2021-2023 MY Jeep Grand Cherokee L, 2022-2023 MY Jeep Wagoneer/Grand Wagoneer, 2021-2023 MY Chrysler Pacifica, and 2022 Chrysler Voyager vehicles.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 16.50734783394728,
+          "first_content_chunk_s": 7.7739583749789745,
+          "input_tokens": 4225,
+          "output_tokens": 395,
+          "generation_tokens_per_s": 45.221884323793724,
+          "load_s": 0.00326925,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:28:49.927839Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 16506459125,
+          "load_duration": 3269250,
+          "prompt_eval_count": 4225,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 7517112000,
+          "eval_count": 395,
+          "eval_duration": 8734709000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 98,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 0,
+        "seed": 41,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:28:49.929626+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": {\n      \"value\": \"19V-627\",\n      \"page\": 1,\n      \"quote\": \"The information contained in this report was submitted pursuant to 49 CFR §573\"\n    },\n    \"manufacturer\": {\n      \"value\": \"Toyota Motor Engineering & Manufacturing\",\n      \"page\": 1,\n      \"quote\": \"Manufacturer Name : Toyota Motor Engineering & Manufacturing\"\n    },\n    \"population\": {\n      \"value\": 229460,\n      \"page\": 1,\n      \"quote\": \"Number of potentially involved : 229,460\"\n    },\n    \"defect_percent\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Estimated percentage with defect : NR\"\n    },\n    \"supplier\": {\n      \"value\": \"Joyson Safety Systems Japan K. K.\",\n      \"page\": 3,\n      \"quote\": \"Component Manufacturer   Name : Joyson Safety Systems Japan K. K.\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 41,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 7.628367916913703,
+          "first_content_chunk_s": 3.458796582999639,
+          "input_tokens": 2029,
+          "output_tokens": 212,
+          "generation_tokens_per_s": 50.84676655338071,
+          "load_s": 0.00325575,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:28:57.557942Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 7627483625,
+          "load_duration": 3255750,
+          "prompt_eval_count": 2029,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 3217164000,
+          "eval_count": 212,
+          "eval_duration": 4169390000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 1.0,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "19V-627",
+              "actual": {
+                "value": "19V-627",
+                "page": 1,
+                "quote": "The information contained in this report was submitted pursuant to 49 CFR §573"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": {
+                "value": "Toyota Motor Engineering & Manufacturing",
+                "page": 1,
+                "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing"
+              }
+            },
+            {
+              "field": "population",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 229460,
+              "actual": {
+                "value": 229460,
+                "page": 1,
+                "quote": "Number of potentially involved : 229,460"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": true,
+              "quote_valid": true,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Estimated percentage with defect : NR"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": {
+                "value": "Joyson Safety Systems Japan K. K.",
+                "page": 3,
+                "quote": "Component Manufacturer   Name : Joyson Safety Systems Japan K. K."
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:28:57.559898+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": {\n      \"value\": \"19V-627\",\n      \"page\": 1,\n      \"quote\": \"NHTSA Recall No. : 19V-627\"\n    },\n    \"manufacturer\": {\n      \"value\": \"Toyota Motor Engineering & Manufacturing\",\n      \"page\": 1,\n      \"quote\": \"Manufacturer Name : Toyota Motor Engineering & Manufacturing\"\n    },\n    \"population\": {\n      \"value\": \"229460\",\n      \"page\": 1,\n      \"quote\": \"Number of potentially involved : 229,460\"\n    },\n    \"defect_percent\": {\n      \"value\": \"null\",\n      \"page\": 1,\n      \"quote\": \"Estimated percentage with defect : NR\"\n    },\n    \"supplier\": {\n      \"value\": \"Joyson Safety Systems Japan K. K.\",\n      \"page\": 3,\n      \"quote\": \"Component Manufacturer   Name : Joyson Safety Systems Japan K. K.\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 4.1560857080621645,
+          "first_content_chunk_s": 0.03993337496649474,
+          "input_tokens": 2029,
+          "output_tokens": 210,
+          "generation_tokens_per_s": 51.01004752193189,
+          "load_s": 0.002721417,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:01.715919Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 4155410625,
+          "load_duration": 2721417,
+          "prompt_eval_count": 2029,
+          "prompt_eval_cached_count": 2028,
+          "prompt_eval_duration": 30181000,
+          "eval_count": 210,
+          "eval_duration": 4116836000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.6,
+          "quote_validity": 1.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "19V-627",
+              "actual": {
+                "value": "19V-627",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 19V-627"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": {
+                "value": "Toyota Motor Engineering & Manufacturing",
+                "page": 1,
+                "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing"
+              }
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": true,
+              "expected": 229460,
+              "actual": {
+                "value": "229460",
+                "page": 1,
+                "quote": "Number of potentially involved : 229,460"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": true,
+              "expected": null,
+              "actual": {
+                "value": "null",
+                "page": 1,
+                "quote": "Estimated percentage with defect : NR"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": {
+                "value": "Joyson Safety Systems Japan K. K.",
+                "page": 3,
+                "quote": "Component Manufacturer   Name : Joyson Safety Systems Japan K. K."
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:29:01.716719+00:00",
+        "raw_response": "{\"answers\":{\"initial_alert\":\"2021-04-13\",\"page\":1,\"quote\":\"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_durango_date\":\"2023-12-09\",\"page\":1,\"quote\":\"The suspect population began on July 13, 2020, when the first suspect 2021 MY vehicle was produced, and ended on December 9, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"latest_pacifica_plan\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"actual_pacifica_date\":\"2023-09-14\",\"page\":1,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":1,\"quote\":\"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":2025,\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":2022,\"page\":1,\"quote\":\"The suspect population began on July 13, 2020, when the first suspect 2021 MY vehicle was produced, and ended on December 9, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":2025,\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":null,\"page\":1,\"quote\":\"The suspect population began on June 10, 2020, when the first suspect 2021 MY vehicle was produced, and ended on September 14, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":2,\"quote\":\"The suspect population began on April 14, 2021, when the first suspect 2022 MY vehicle was produced, and ended on December 7, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":2,\"quote\":\"The suspect population began on April 14, 2021, when the first suspect 2022 MY vehicle was produced, and ended on December 7, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":3,\"quote\":\"The suspect population began on February 18, 2021, when the first suspect 2022 MY vehicle was produced, and ended on August 31, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":3,\"quote\":\"The suspect population began on May 17, 2021, when the first suspect 2022 MY vehicle was produced, and ended on October 23, 2023, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":null,\"page\":1,\"quote\":\"NR\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":2021,\"page\":4,\"quote\":\"The suspect population began on February 24",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 33.81392587500159,
+          "first_content_chunk_s": 0.30129962495993823,
+          "input_tokens": 4388,
+          "output_tokens": 1400,
+          "generation_tokens_per_s": 41.77581593241294,
+          "load_s": 0.001916708,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "length",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:35.530142Z",
+          "done": true,
+          "done_reason": "length",
+          "total_duration": 33813315875,
+          "load_duration": 1916708,
+          "prompt_eval_count": 4388,
+          "prompt_eval_cached_count": 4387,
+          "prompt_eval_duration": 36877000,
+          "eval_count": 1400,
+          "eval_duration": 33512212000
+        },
+        "status": "truncated",
+        "score": {
+          "json_valid": false,
+          "schema_valid": false,
+          "field_accuracy": null,
+          "quote_validity": null,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "error": "invalid_json"
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:29:35.530921+00:00",
+        "raw_response": "{\n  \"summary\": \"Le rapport automobile historique indique que Chrysler (FCA US, LLC) a réalisé un événement réalisé en mai 2024, où ils ont reconnu une issue de logiciel dans les radios de certains véhicules, qui pourrait empêcher le signal de caméra de rearview de passer à l'écran de média. Le problème a été corrigé par un mélange de firmware Over-The-Air et de mises à jour USB. Les propriétaires de véhicules affectés seront contactés par FCA US pour les mises à jour nécessaires.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Some 2022 MY Ram 1500 vehicles may have been built with radio software that may prevent the rearview camera signal from passing through to the media screen.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"On October 23, 2023, the FCA US LLC (\\\"FCA US\\\") Technical Safety and Regulatory Compliance (\\\"TSRC\\\") organization was notified of a potential issue related to rearview cameras not displaying in some 2022 MY Ram 1500, 2022 MY Ram 2500, 2022 MY Ram 3500, 2022-2023 MY Ram ProMaster, 2021-2022 MY Dodge Durango, 2022-2023 MY Jeep Compass, 2022-2023 MY Jeep Grand Cherokee, 2021-2023 MY Jeep Grand Cherokee L, 2022-2023 MY Jeep Wagoneer/Grand Wagoneer, 2021-2023 MY Chrysler Pacifica, and 2022 Chrysler Voyager vehicles.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 9.091687875101343,
+          "first_content_chunk_s": 0.33001900010276586,
+          "input_tokens": 4225,
+          "output_tokens": 371,
+          "generation_tokens_per_s": 42.3381186058457,
+          "load_s": 0.003689042,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:44.622403Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 9090726375,
+          "load_duration": 3689042,
+          "prompt_eval_count": 4225,
+          "prompt_eval_cached_count": 4224,
+          "prompt_eval_duration": 38779000,
+          "eval_count": 371,
+          "eval_duration": 8762789000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 80,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:29:44.623514+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"The information contained in this report was submitted pursuant to 49 CFR §573\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-08-28\",\n      \"page\": 4,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 4,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": null\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": null\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 4.905271333060227,
+          "first_content_chunk_s": 0.2860685420455411,
+          "input_tokens": 2045,
+          "output_tokens": 218,
+          "generation_tokens_per_s": 47.189640445245075,
+          "load_s": 0.002538625,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:49.528694Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 4904187959,
+          "load_duration": 2538625,
+          "prompt_eval_count": 2045,
+          "prompt_eval_cached_count": 2044,
+          "prompt_eval_duration": 36781000,
+          "eval_count": 218,
+          "eval_duration": 4619658000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 1.0,
+          "quote_validity": 0.6,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "The information contained in this report was submitted pursuant to 49 CFR §573"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-08-28",
+                "page": 4,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 4,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": null
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:29:49.530266+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"-24V-436\",\n    \"manufacturer\": \"Chrysler (FCA US, LLC)\",\n    \"population\": \"1,033,433\",\n    \"defect_percent\": \"100\",\n    \"supplier\": \"Harman\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 1.5467311249813065,
+          "first_content_chunk_s": 0.2519134170142934,
+          "input_tokens": 4335,
+          "output_tokens": 62,
+          "generation_tokens_per_s": 47.85671391102048,
+          "load_s": 0.002009166,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:51.07691Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 1545904416,
+          "load_duration": 2009166,
+          "prompt_eval_count": 4335,
+          "prompt_eval_cached_count": 4334,
+          "prompt_eval_duration": 35663000,
+          "eval_count": 62,
+          "eval_duration": 1295534000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "24V-436",
+              "actual": "-24V-436"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": "Chrysler (FCA US, LLC)"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 1033433,
+              "actual": "1,033,433"
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 100,
+              "actual": "100"
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Harman",
+              "actual": "Harman"
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:29:51.077451+00:00",
+        "raw_response": "{\"summary\": \"Synthèse de la révision de Toyota concernant un risque de sécurité lié à un airbag, avec une estimation limitée de la part de Toyota et une remise à effectuer par les propriétaires. Les propriétaires sont invités à retourner leurs véhicules pour une réparation. Les détails de la remise sont fournis dans le document, mais les dates exactes de notification et de réparation sont indéterminées.\", \"citations\": [\n{\"page\": 1, \"quote\": \"Although the involved vehicles are within the above production period, not all vehicles in this range were sold in the U.S.\"},\n{\"page\": 3, \"quote\": \"There is a possibility that the air bag may not unfold as designed during inflation under high temperature conditions, resulting in air bag internal pressure rising differently than expected.\"},\n{\"page\": 3, \"quote\": \"In either instance, such damage during deployment could cause the air bag not to properly inflate, and this could increase the risk of occupant injury in the event of a crash.\"},\n{\"page\": 4, \"quote\": \"All known owners of the affected Toyota vehicles will be notified by first class mail to return their vehicles to a Toyota dealer.\"}\n]}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 5.324453750043176,
+          "first_content_chunk_s": 0.181505584041588,
+          "input_tokens": 1919,
+          "output_tokens": 263,
+          "generation_tokens_per_s": 51.13415755892142,
+          "load_s": 0.001759375,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:29:56.401763Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 5323864625,
+          "load_duration": 1759375,
+          "prompt_eval_count": 1919,
+          "prompt_eval_cached_count": 1918,
+          "prompt_eval_duration": 30642000,
+          "eval_count": 263,
+          "eval_duration": 5143333000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 64,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:29:56.402461+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"19V-627\",\n    \"manufacturer\": \"Toyota Motor Engineering & Manufacturing\",\n    \"population\": 229460,\n    \"defect_percent\": null,\n    \"supplier\": \"Joyson Safety Systems Japan K. K.\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 4.471021167002618,
+          "first_content_chunk_s": 3.599079917068593,
+          "input_tokens": 2145,
+          "output_tokens": 68,
+          "generation_tokens_per_s": 77.9807571014094,
+          "load_s": 1.661673708,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:00.873315Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 4470431750,
+          "load_duration": 1661673708,
+          "prompt_eval_count": 2145,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 1925921000,
+          "eval_count": 68,
+          "eval_duration": 872010000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "19V-627",
+              "actual": "19V-627"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": "Toyota Motor Engineering & Manufacturing"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 229460,
+              "actual": 229460
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": null
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": "Joyson Safety Systems Japan K. K."
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:30:00.873872+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"initial_alert\": {\n      \"value\": \"04/13/2021\",\n      \"page\": 1,\n      \"quote\": \"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced.\"\n    },\n    \"decision_date\": {\n      \"value\": \"06/06/2024\",\n      \"page\": 8,\n      \"quote\": \"On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles.\"\n    },\n    \"actual_durango_date\": {\n      \"value\": \"12/12/2024\",\n      \"page\": 8,\n      \"quote\": \"FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024\"\n    },\n    \"latest_pacifica_plan\": {\n      \"value\": \"01/30/2025\",\n      \"page\": 8,\n      \"quote\": \"01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"\n    },\n    \"actual_pacifica_date\": {\n      \"value\": \"NR\",\n      \"page\": 8,\n      \"quote\": \"NR - Not Reported\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 10.820314041920938,
+          "first_content_chunk_s": 4.996854749973863,
+          "input_tokens": 4944,
+          "output_tokens": 365,
+          "generation_tokens_per_s": 62.678052893407816,
+          "load_s": 0.002069208,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:11.694042Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 10819872541,
+          "load_duration": 2069208,
+          "prompt_eval_count": 4944,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4945584000,
+          "eval_count": 365,
+          "eval_duration": 5823410000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "decision_date",
+            "actual_durango_date",
+            "latest_pacifica_plan",
+            "actual_pacifica_date"
+          ],
+          "details": [
+            {
+              "field": "initial_alert",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2023-10-23",
+              "actual": {
+                "value": "04/13/2021",
+                "page": 1,
+                "quote": "The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced."
+              }
+            },
+            {
+              "field": "decision_date",
+              "correct": false,
+              "quote_valid": true,
+              "expected": "2024-06-06",
+              "actual": {
+                "value": "06/06/2024",
+                "page": 8,
+                "quote": "On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles."
+              }
+            },
+            {
+              "field": "actual_durango_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2024-12-12",
+              "actual": {
+                "value": "12/12/2024",
+                "page": 8,
+                "quote": "FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024"
+              }
+            },
+            {
+              "field": "latest_pacifica_plan",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2025-02-20",
+              "actual": {
+                "value": "01/30/2025",
+                "page": 8,
+                "quote": "01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025."
+              }
+            },
+            {
+              "field": "actual_pacifica_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": "NR",
+                "page": 8,
+                "quote": "NR - Not Reported"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:30:11.694728+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel automobiliste concernant le problème de la mise en œuvre de logiciels de caméra arrière qui empêchent l'affichage de l'image arrière lors des manœuvres de retrait, couvre une population de 1,033,433 véhicules affectés. Les actions correctives incluent un rappel volontaire de tous les véhicules concernés, avec une mise à jour du logiciel radio pour respecter les normes FMVSS No. 111. Le rapport mentionne des dates de notification pour les propriétaires et des méthodes de mise à jour (via firmware ou USB). Les limites documentaires incluent des informations non renseignées concernant les causes et les alertes préalables. Le problème est résumé dans deux passages précis du document.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Some 2022 MY Ram 1500 vehicles may have been built with radio software that may prevent the rearview camera signal from passing through to the media screen.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"FCA US will conduct a voluntary safety recall of the affected vehicles to update the radio software.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 9.319422917091288,
+          "first_content_chunk_s": 4.842503458028659,
+          "input_tokens": 4773,
+          "output_tokens": 284,
+          "generation_tokens_per_s": 63.43780169253842,
+          "load_s": 0.00180425,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:21.01393Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 9318862041,
+          "load_duration": 1804250,
+          "prompt_eval_count": 4773,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4755628000,
+          "eval_count": 284,
+          "eval_duration": 4476826000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.5,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 109,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:30:21.014850+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"Submission Date : JUN 01, 2020\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-10-31\",\n      \"page\": 1,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 1,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Investigation_date : null si absente des quatre pages fournies.\"\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Production_fix_date : NR\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 5.541750291013159,
+          "first_content_chunk_s": 2.0695342499529943,
+          "input_tokens": 2157,
+          "output_tokens": 258,
+          "generation_tokens_per_s": 74.30171507365804,
+          "load_s": 0.001862333,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:26.556458Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 5541122083,
+          "load_duration": 1862333,
+          "prompt_eval_count": 2157,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 1957497000,
+          "eval_count": 258,
+          "eval_duration": 3472329000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "actual_dealer_date"
+          ],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "Submission Date : JUN 01, 2020"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-10-31",
+                "page": 1,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": false,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 1,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Investigation_date : null si absente des quatre pages fournies."
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Production_fix_date : NR"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:30:26.557209+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"24V-436\",\n    \"manufacturer\": \"Chrysler (FCA US, LLC)\",\n    \"population\": 1033433,\n    \"defect_percent\": 100,\n    \"supplier\": \"Harman\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 6.005218416918069,
+          "first_content_chunk_s": 4.951364374952391,
+          "input_tokens": 4884,
+          "output_tokens": 69,
+          "generation_tokens_per_s": 65.47452424217983,
+          "load_s": 0.002096917,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:32.56225Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 6004689167,
+          "load_duration": 2096917,
+          "prompt_eval_count": 4884,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 4875200000,
+          "eval_count": 69,
+          "eval_duration": 1053845000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "24V-436",
+              "actual": "24V-436"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": "Chrysler (FCA US, LLC)"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 1033433,
+              "actual": 1033433
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 100,
+              "actual": 100
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Harman",
+              "actual": "Harman"
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 1,
+        "seed": 42,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:30:32.562789+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel de sécurité (Part 573) concernant les airbags frontaux de Toyota et Pontiac est daté du 1er juin 2020. Il indique que des véhicules de 2003 à 2008, équipés de certaines versions d'airbags frontaux Takata, peuvent avoir un défaut dans l'installation du dispositif d'inflation. Le défaut pourrait entraîner un déchirement de la matière de l'airbag ou une dégradation du bag plate, augmentant ainsi le risque d'injures en cas de collision. Toyota et GM ont mis en place un programme de notification et de remplacement des composants. Les notifications aux propriétaires sont prévues fin 2019, et les distributeurs/entreteneurs ont été informés le 28 août 2019. Le rapport mentionne que le pourcentage exact des véhicules affectés est non renseigné, et que le risque est variable selon les conditions d'installation.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Le rapport indique que les véhicules concernés sont ceux de 2003 à 2008, équipés de certaines versions d'airbags frontaux Takata, et que le défaut pourrait entraîner un déchirement de la matière de l'airbag ou une dégradation du bag plate.\"\n    },\n    {\n      \"page\": 4,\n      \"quote\": \"Les notifications aux propriétaires sont prévues fin 2019, et les distributeurs/entreteneurs ont été informés le 28 août 2019. Les dates de notification aux propriétaires sont prévues du 25 septembre 2019 à la fin de octobre 2019.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 42,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 7.515767624950968,
+          "first_content_chunk_s": 1.8605490839108825,
+          "input_tokens": 2034,
+          "output_tokens": 420,
+          "generation_tokens_per_s": 74.26354434435369,
+          "load_s": 0.001787791,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:40.078426Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 7515298583,
+          "load_duration": 1787791,
+          "prompt_eval_count": 2034,
+          "prompt_eval_cached_count": 124,
+          "prompt_eval_duration": 1778684000,
+          "eval_count": 420,
+          "eval_duration": 5655534000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 130,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:30:40.079379+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel de sécurité (Part 573) concernant les airbags frontaux de Toyota et Pontiac est daté du 1er juin 2020. Il déclare que des véhicules produits entre 2002 et 2007 ont été affectés par un défaut dans les systèmes d'airbag frontaux. Le fabricant Toyota ne peut pas estimer le pourcentage de véhicules contenant le défaut, et le risque de défaillance de l'airbag ou du panneau de l'airbag est variable selon l'installation et l'environnement de chaque véhicule. Les actions correctives incluent la notification des propriétaires par la poste, la remplacement des systèmes d'airbag par des versions améliorées, et la réclamation des réparations par le propriétaire. Le rapport mentionne que les notifications aux propriétaires seront déclenchées en fin d'octobre 2019, et que les distributeurs/entreteneurs ont été informés le 28 août 2019. Les limites documentaires incluent l'absence d'estimation précise du pourcentage de véhicules affectés et la dépendance du risque à la configuration d'installation.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Le rapport indique que les véhicules concernés ont été produits entre 2002 et 2007 et que le défaut affecte des systèmes d'airbag frontaux de Toyota et Pontiac équipés d'alternatives.\"\n    },\n    {\n      \"page\": 3,\n      \"quote\": \"Le rapport mentionne que le risque de défaillance de l'airbag ou du panneau de l'airbag est variable selon l'installation et l'environnement de chaque véhicule.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 5.71264083404094,
+          "first_content_chunk_s": 0.02799412503372878,
+          "input_tokens": 2034,
+          "output_tokens": 417,
+          "generation_tokens_per_s": 73.35532351192921,
+          "load_s": 0.001863333,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:45.791871Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 5712089875,
+          "load_duration": 1863333,
+          "prompt_eval_count": 2034,
+          "prompt_eval_cached_count": 2033,
+          "prompt_eval_duration": 15800000,
+          "eval_count": 417,
+          "eval_duration": 5684659000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 152,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:30:45.792447+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"Submission Date : JUN 01, 2020\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-10-31\",\n      \"page\": 1,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 1,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Investigation_date : null si absente des quatre pages fournies.\"\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Production_fix_date : NR\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 3.8496565419482067,
+          "first_content_chunk_s": 0.09843366697896272,
+          "input_tokens": 2157,
+          "output_tokens": 258,
+          "generation_tokens_per_s": 68.7799896083566,
+          "load_s": 0.001732292,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:49.641951Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 3849137709,
+          "load_duration": 1732292,
+          "prompt_eval_count": 2157,
+          "prompt_eval_cached_count": 2156,
+          "prompt_eval_duration": 16259000,
+          "eval_count": 258,
+          "eval_duration": 3751091000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.8,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "actual_dealer_date"
+          ],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "Submission Date : JUN 01, 2020"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-10-31",
+                "page": 1,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": false,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 1,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Investigation_date : null si absente des quatre pages fournies."
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Production_fix_date : NR"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:30:49.643317+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"19V-627\",\n    \"manufacturer\": \"Toyota Motor Engineering & Manufacturing\",\n    \"population\": 229460,\n    \"defect_percent\": null,\n    \"supplier\": \"Joyson Safety Systems Japan K. K.\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 1.0716208330122754,
+          "first_content_chunk_s": 0.09609474998433143,
+          "input_tokens": 2145,
+          "output_tokens": 68,
+          "generation_tokens_per_s": 69.69455337065408,
+          "load_s": 0.002478375,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:50.714862Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 1070655875,
+          "load_duration": 2478375,
+          "prompt_eval_count": 2145,
+          "prompt_eval_cached_count": 2144,
+          "prompt_eval_duration": 15461000,
+          "eval_count": 68,
+          "eval_duration": 975686000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "19V-627",
+              "actual": "19V-627"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": "Toyota Motor Engineering & Manufacturing"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 229460,
+              "actual": 229460
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": null
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": "Joyson Safety Systems Japan K. K."
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:30:50.715342+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"initial_alert\": {\n      \"value\": \"04/13/2021\",\n      \"page\": 1,\n      \"quote\": \"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced.\"\n    },\n    \"decision_date\": {\n      \"value\": \"06/06/2024\",\n      \"page\": 8,\n      \"quote\": \"On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles.\"\n    },\n    \"actual_durango_date\": {\n      \"value\": \"12/12/2024\",\n      \"page\": 8,\n      \"quote\": \"FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024\"\n    },\n    \"latest_pacifica_plan\": {\n      \"value\": \"01/30/2025\",\n      \"page\": 8,\n      \"quote\": \"01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"\n    },\n    \"actual_pacifica_date\": {\n      \"value\": \"NR\",\n      \"page\": 8,\n      \"quote\": \"NR - Not Reported\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 6.525479041039944,
+          "first_content_chunk_s": 0.2455213749781251,
+          "input_tokens": 4944,
+          "output_tokens": 365,
+          "generation_tokens_per_s": 58.123379213646416,
+          "load_s": 0.001851417,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:30:57.240649Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 6524965292,
+          "load_duration": 1851417,
+          "prompt_eval_count": 4944,
+          "prompt_eval_cached_count": 4943,
+          "prompt_eval_duration": 19552000,
+          "eval_count": 365,
+          "eval_duration": 6279745000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.2,
+          "critical_errors": [
+            "decision_date",
+            "actual_durango_date",
+            "latest_pacifica_plan",
+            "actual_pacifica_date"
+          ],
+          "details": [
+            {
+              "field": "initial_alert",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2023-10-23",
+              "actual": {
+                "value": "04/13/2021",
+                "page": 1,
+                "quote": "The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced."
+              }
+            },
+            {
+              "field": "decision_date",
+              "correct": false,
+              "quote_valid": true,
+              "expected": "2024-06-06",
+              "actual": {
+                "value": "06/06/2024",
+                "page": 8,
+                "quote": "On June 06, 2024, FCA US determined, through the Vehicle Regulations Committee, to conduct a voluntary safety recall of the affected vehicles."
+              }
+            },
+            {
+              "field": "actual_durango_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2024-12-12",
+              "actual": {
+                "value": "12/12/2024",
+                "page": 8,
+                "quote": "FCA US began mailing Final letters to owners of 2021-2022 Dodge Durango vehicles on 12/12/2024"
+              }
+            },
+            {
+              "field": "latest_pacifica_plan",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2025-02-20",
+              "actual": {
+                "value": "01/30/2025",
+                "page": 8,
+                "quote": "01/30/2025: FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025."
+              }
+            },
+            {
+              "field": "actual_pacifica_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": "NR",
+                "page": 8,
+                "quote": "NR - Not Reported"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:30:57.241553+00:00",
+        "raw_response": "{\n  \"summary\": \"Ce rapport de rappel automobiliste concernant le problème de la mise en évidence du signal de caméra arrière non fonctionnelle dans certains véhicules 2022-2023 est structuré en plusieurs parties. Le problème est lié à des logiciels de radio qui peuvent empêcher le signal de caméra arrière de passer à l'écran. Le rappel est effectué par FCA US, avec une date de début de diffusion des lettres aux propriétaires de 2021 Chrysler Pacifica et Jeep Grand Cherokee en février 2025. Le rappel inclut des mises à jour du logiciel radio pour répondre aux normes FMVSS No. 111. Les véhicules concernés sont ceux de 2021-2023 Chrysler, Jeep et Dodge, avec une population totale de 518, 127, et 75,578 respectivement. Le rappel est volontaire et inclut des mesures de réparation et de confirmation des dépenses des propriétaires.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"Le rapport indique que le problème est lié à des logiciels de radio qui peuvent empêcher le signal de caméra arrière de passer à l'écran dans certains véhicules 2022-2023.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"Le rappel est effectué par FCA US, avec une date de début de diffusion des lettres aux propriétaires de 2021 Chrysler Pacifica et Jeep Grand Cherokee en février 2025.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 6.4313538749702275,
+          "first_content_chunk_s": 0.18809075001627207,
+          "input_tokens": 4773,
+          "output_tokens": 376,
+          "generation_tokens_per_s": 60.226306754684636,
+          "load_s": 0.001700709,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:31:03.672849Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 6430791417,
+          "load_duration": 1700709,
+          "prompt_eval_count": 4773,
+          "prompt_eval_cached_count": 4772,
+          "prompt_eval_duration": 17513000,
+          "eval_count": 376,
+          "eval_duration": 6243119000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 0.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 134,
+          "length_respected": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "qwen3:1.7b",
+        "provider": "ollama",
+        "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:31:03.673433+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": \"24V-436\",\n    \"manufacturer\": \"Chrysler (FCA US, LLC)\",\n    \"population\": 1033433,\n    \"defect_percent\": 100,\n    \"supplier\": \"Harman\"\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 1.6009869169211015,
+          "first_content_chunk_s": 0.46094445791095495,
+          "input_tokens": 4884,
+          "output_tokens": 69,
+          "generation_tokens_per_s": 60.527961725274984,
+          "load_s": 0.001828958,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "qwen3:1.7b",
+          "created_at": "2026-10-06T18:31:05.274343Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 1600437583,
+          "load_duration": 1828958,
+          "prompt_eval_count": 4884,
+          "prompt_eval_cached_count": 4883,
+          "prompt_eval_duration": 18473000,
+          "eval_count": 69,
+          "eval_duration": 1139969000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "24V-436",
+              "actual": "24V-436"
+            },
+            {
+              "field": "manufacturer",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": "Chrysler (FCA US, LLC)"
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 1033433,
+              "actual": 1033433
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": false,
+              "expected": 100,
+              "actual": 100
+            },
+            {
+              "field": "supplier",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "Harman",
+              "actual": "Harman"
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-summary",
+        "task": "synthesis",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "c47e63b17ea7f0743934f96253da9f12d3314fbe40842e00f339397921049630",
+        "started_at": "2026-10-06T18:31:05.275153+00:00",
+        "raw_response": "{\"summary\": \"Synthèse de la révision de Toyota concernant un risque de sécurité lié à un airbag, avec une estimation limitée de la proportion de véhicules affectés et une date de notification prévue pour fin octobre 2019.\", \"citations\": [\n{\"page\": 1, \"quote\": \"The information contained in this report was submitted pursuant to 49 CFR §573\"}\n],\n\"citations\": [\n{\"page\": 3, \"quote\": \"The subject vehicles are equipped with a front passenger air bag assembly containing an inflator, manufactured by an alternative supplier, installed as a replacement under a prior recall.\"}\n],\n\"citations\": [\n{\"page\": 3, \"quote\": \"Under such conditions, a portion of the air bag material could be torn during deployment, or the bag plate (which mounts the air bag to the air bag assembly case) could be damaged.\"}\n],\n\"citations\": [\n{\"page\": 4, \"quote\": \"Notifications to owners of the affected vehicles will occur by the end of October, 2019.\"}\n]}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 11.810832833056338,
+          "first_content_chunk_s": 6.056638499954715,
+          "input_tokens": 1919,
+          "output_tokens": 230,
+          "generation_tokens_per_s": 39.97226967239597,
+          "load_s": 2.414779333,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:31:17.085798Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 11810258583,
+          "load_duration": 2414779333,
+          "prompt_eval_count": 1919,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 3634080000,
+          "eval_count": 230,
+          "eval_duration": 5753989000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 35,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-timeline",
+        "task": "chronology",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "e574d19665fcc15c39ce0fdddd6fc4d81e7b7faaf7eaafb57155a92409f10aa1",
+        "started_at": "2026-10-06T18:31:17.086541+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"submission_date\": {\n      \"value\": \"2020-06-01\",\n      \"page\": 1,\n      \"quote\": \"The information contained in this report was submitted pursuant to 49 CFR §573\"\n    },\n    \"actual_dealer_date\": {\n      \"value\": \"2019-08-28\",\n      \"page\": 4,\n      \"quote\": \"Notifications to distributors/dealers were sent on August 28, 2019.\"\n    },\n    \"planned_owner_start\": {\n      \"value\": \"2019-09-25\",\n      \"page\": 4,\n      \"quote\": \"Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019\"\n    },\n    \"investigation_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": \"NR\"\n    },\n    \"production_fix_date\": {\n      \"value\": null,\n      \"page\": null,\n      \"quote\": \"NR\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 8.394163957913406,
+          "first_content_chunk_s": 3.8406805410049856,
+          "input_tokens": 2045,
+          "output_tokens": 220,
+          "generation_tokens_per_s": 48.316287200795905,
+          "load_s": 0.00343425,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:31:25.480485Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 8393608750,
+          "load_duration": 3434250,
+          "prompt_eval_count": 2045,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 3787416000,
+          "eval_count": 220,
+          "eval_duration": 4553330000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 1.0,
+          "quote_validity": 0.6,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "submission_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2020-06-01",
+              "actual": {
+                "value": "2020-06-01",
+                "page": 1,
+                "quote": "The information contained in this report was submitted pursuant to 49 CFR §573"
+              }
+            },
+            {
+              "field": "actual_dealer_date",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-08-28",
+              "actual": {
+                "value": "2019-08-28",
+                "page": 4,
+                "quote": "Notifications to distributors/dealers were sent on August 28, 2019."
+              }
+            },
+            {
+              "field": "planned_owner_start",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "2019-09-25",
+              "actual": {
+                "value": "2019-09-25",
+                "page": 4,
+                "quote": "Planned Owner Notification Date : SEP 25, 2019 - OCT 27, 2019"
+              }
+            },
+            {
+              "field": "investigation_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": "NR"
+              }
+            },
+            {
+              "field": "production_fix_date",
+              "correct": true,
+              "quote_valid": false,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": null,
+                "quote": "NR"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "19V627-extract",
+        "task": "extraction",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "a01dd433b88be67f5081426dcc959f32385cdabfaebba08fa1667c3e9d4e6af6",
+        "started_at": "2026-10-06T18:31:25.481066+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": {\n      \"value\": \"19V-627\",\n      \"page\": 1,\n      \"quote\": \"NHTSA Recall No.\"\n    },\n    \"manufacturer\": {\n      \"value\": \"Toyota Motor Engineering & Manufacturing\",\n      \"page\": 1,\n      \"quote\": \"Manufacturer Name : Toyota Motor Engineering & Manufacturing\"\n    },\n    \"population\": {\n      \"value\": 229460,\n      \"page\": 1,\n      \"quote\": \"Number of potentially involved : 229,460\"\n    },\n    \"defect_percent\": {\n      \"value\": null,\n      \"page\": 1,\n      \"quote\": \"Estimated percentage with defect : NR\"\n    },\n    \"supplier\": {\n      \"value\": \"Joyson Safety Systems Japan K. K.\",\n      \"page\": 3,\n      \"quote\": \"Component Manufacturer   Name : Joyson Safety Systems Japan K. K.\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 7.946479290956631,
+          "first_content_chunk_s": 3.6714207909535617,
+          "input_tokens": 2029,
+          "output_tokens": 202,
+          "generation_tokens_per_s": 47.25290998326567,
+          "load_s": 0.001896666,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:31:33.42735Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 7945946541,
+          "load_duration": 1896666,
+          "prompt_eval_count": 2029,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 3630972000,
+          "eval_count": 202,
+          "eval_duration": 4274868999
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 1.0,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "19V-627",
+              "actual": {
+                "value": "19V-627",
+                "page": 1,
+                "quote": "NHTSA Recall No."
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Toyota Motor Engineering & Manufacturing",
+              "actual": {
+                "value": "Toyota Motor Engineering & Manufacturing",
+                "page": 1,
+                "quote": "Manufacturer Name : Toyota Motor Engineering & Manufacturing"
+              }
+            },
+            {
+              "field": "population",
+              "correct": true,
+              "quote_valid": true,
+              "expected": 229460,
+              "actual": {
+                "value": 229460,
+                "page": 1,
+                "quote": "Number of potentially involved : 229,460"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": true,
+              "quote_valid": true,
+              "expected": null,
+              "actual": {
+                "value": null,
+                "page": 1,
+                "quote": "Estimated percentage with defect : NR"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Joyson Safety Systems Japan K. K.",
+              "actual": {
+                "value": "Joyson Safety Systems Japan K. K.",
+                "page": 3,
+                "quote": "Component Manufacturer   Name : Joyson Safety Systems Japan K. K."
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": true
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-timeline",
+        "task": "chronology",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "c52948982544cbaae18d1a5ad5fc6e4f5db207989dac5fac0540810ca4e14506",
+        "started_at": "2026-10-06T18:31:33.428309+00:00",
+        "raw_response": "{\"answers\":{\"initial_alert\":\"2021-04-13\",\"page\":1,\"quote\":\"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"decision_date\":\"2024-05-08\",\"page\":1,\"quote\":\"On May 8, 2024, the FCA US TSRC organization recognized a radio software issue existed on certain vehicles related to the rearview back up camera not displaying the rearview image, potentially causing a noncompliance with FMVSS No.111.\"},\"answers\":{\"actual_durango_date\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"latest_pacifica_plan\":\"2024-12-17\",\"page\":1,\"quote\":\"**12/17/2024: FCA US began notifying owners of 2022 model year Ram ProMaster vans, 1500, 2500, 3500 trucks and Chrysler Voyager vehicles, 2022-2023 Jeep Compass, Grand Cherokee, Grand Cherokee L, Wagoneer, Grand Wagoneer, Chrysler Pacifica vehicles on 07/25/2024.\"},\"answers\":{\"actual_pacifica_date\":\"2025-02-20\",\"page\":1,\"quote\":\"FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025.\"},\"answers\":{\"nom_du_champ\":\"initial_alert\",\"value\":\"2021-04-13\",\"page\":1,\"quote\":\"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"},\"answers\":{\"nom_du_champ\":\"decision_date\",\"value\":\"2024-05-08\",\"page\":1,\"quote\":\"On May 8, 2024, the FCA US TSRC organization recognized a radio software issue existed on certain vehicles related to the rearview back up camera not displaying the rearview image, potentially causing a noncompliance with FMVSS No.111.\"},\"answers\":{\"nom_du_champ\":\"actual_durango_date\",\"value\":\"2025-01-30\",\"page\":1,\"quote\":\"**01/30/2025: FCA US will begin mailing owners of 2021 Chrysler vehicles on or about 02/20/2025 and to owners of 2021 Jeep Grand Cherokee vehicles on or about 02/27/2025.\"},\"answers\":{\"nom_du_champ\":\"latest_pacifica_plan\",\"value\":\"2024-12-17\",\"page\":1,\"quote\":\"**12/17/2024: FCA US began notifying owners of 2022 model year Ram ProMaster vans, 1500, 2500, 3500 trucks and Chrysler Voyager vehicles, 2022-2023 Jeep Compass, Grand Cherokee, Grand Cherokee L, Wagoneer, Grand Wagoneer, Chrysler Pacifica vehicles on 07/25/2024.\"},\"answers\":{\"nom_du_champ\":\"actual_pacifica_date\",\"value\":\"2025-02-20\",\"page\":1,\"quote\":\"FCA US will begin mailing owners of 2021 Chrysler Pacifica vehicles on or about 02/20/2025.\"}}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 25.546138459001668,
+          "first_content_chunk_s": 8.506553041981533,
+          "input_tokens": 4388,
+          "output_tokens": 762,
+          "generation_tokens_per_s": 44.71985038451736,
+          "load_s": 0.001903292,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:31:58.974057Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 25545407959,
+          "load_duration": 1903292,
+          "prompt_eval_count": 4388,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 8454509000,
+          "eval_count": 762,
+          "eval_duration": 17039413000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": false,
+          "field_accuracy": 0.0,
+          "quote_validity": 0.0,
+          "critical_errors": [
+            "decision_date",
+            "actual_durango_date",
+            "latest_pacifica_plan",
+            "actual_pacifica_date"
+          ],
+          "details": [
+            {
+              "field": "initial_alert",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2023-10-23",
+              "actual": null
+            },
+            {
+              "field": "decision_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2024-06-06",
+              "actual": null
+            },
+            {
+              "field": "actual_durango_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2024-12-12",
+              "actual": null
+            },
+            {
+              "field": "latest_pacifica_plan",
+              "correct": false,
+              "quote_valid": false,
+              "expected": "2025-02-20",
+              "actual": null
+            },
+            {
+              "field": "actual_pacifica_date",
+              "correct": false,
+              "quote_valid": false,
+              "expected": null,
+              "actual": null
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-summary",
+        "task": "synthesis",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "e6d856980f193528dca483e097ea6a6b40f759a6743cac56d8eb5878bd299f0b",
+        "started_at": "2026-10-06T18:31:58.975615+00:00",
+        "raw_response": "{\n  \"summary\": \"Le rapport automobile historique rapporte une faute de conception dans les systèmes de vision arrière des véhicules Chrysler et Jeep, qui pourrait empêcher la vision arrière de fonctionner correctement. La faute a été détectée en octobre 2023 et un rappel volontaire a été lancé en janvier 2025 pour mettre à jour le logiciel des systèmes de vision arrière. Les propriétaires des véhicules affectés seront informés par courrier et invités à apporter leur véhicule au concessionnaire pour la mise à jour du logiciel.\",\n  \"citations\": [\n    {\n      \"page\": 1,\n      \"quote\": \"The suspect population began on April 13, 2021, when the first suspect 2022 MY vehicle was produced, and ended on November 26, 2022, when the last suspect vehicle was produced.\"\n    },\n    {\n      \"page\": 8,\n      \"quote\": \"On October 23, 2023, the FCA US LLC (\\\"FCA US\\\") Technical Safety and Regulatory Compliance (\\\"TSRC\\\") organization was notified of a potential issue related to rearview cameras not displaying in some 2022 MY Ram 1500, 2022 MY Ram 2500, 2022 MY Ram 3500, 2022-2023 MY Ram ProMaster, 2021-2022 MY Dodge Durango, 2022-2023 MY Jeep Compass, 2022-2023 MY Jeep Grand Cherokee, 2021-2023 MY Jeep Grand Cherokee L, 2022-2023 MY Jeep Wagoneer/Grand Wagoneer, 2021-2023 MY Chrysler Pacifica, and 2022 Chrysler Voyager vehicles.\"\n    }\n  ]\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 16.459754916955717,
+          "first_content_chunk_s": 7.937020292039961,
+          "input_tokens": 4225,
+          "output_tokens": 381,
+          "generation_tokens_per_s": 44.70602095057908,
+          "load_s": 0.002038959,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:32:15.435103Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 16458850334,
+          "load_duration": 2038959,
+          "prompt_eval_count": 4225,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 7738171000,
+          "eval_count": 381,
+          "eval_duration": 8522342000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": null,
+          "quote_validity": 1.0,
+          "critical_errors": [],
+          "details": [],
+          "human_review_required": true,
+          "quality_score": null,
+          "word_count": 82,
+          "length_respected": false
+        }
+      },
+      {
+        "run_id": "20261006T180827Z-f6f92b",
+        "model": "llama3.2:3b",
+        "provider": "ollama",
+        "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+        "case_id": "24V436-extract",
+        "task": "extraction",
+        "repeat": 2,
+        "seed": 43,
+        "prompt_hash": "ecb40b463e910a2e9bcfa484d344a915abdd837d32c170eb28f7510a70e85c73",
+        "started_at": "2026-10-06T18:32:15.435823+00:00",
+        "raw_response": "{\n  \"answers\": {\n    \"campaign\": {\n      \"value\": \"24V-436\",\n      \"page\": 1,\n      \"quote\": \"NHTSA Recall No. : 24V-436\"\n    },\n    \"manufacturer\": {\n      \"value\": \"Chrysler (FCA US, LLC)\",\n      \"page\": 1,\n      \"quote\": \"Manufacturer Name : Chrysler (FCA US, LLC)\"\n    },\n    \"population\": {\n      \"value\": \"1,033,433\",\n      \"page\": 1,\n      \"quote\": \"Number of potentially involved : 1,033,433\"\n    },\n    \"defect_percent\": {\n      \"value\": \"100\",\n      \"page\": 1,\n      \"quote\": \"Estimated percentage with defect : 100 %\"\n    },\n    \"supplier\": {\n      \"value\": \"Harman\",\n      \"page\": 7,\n      \"quote\": \"Component Manufacturer   Name : Harman\"\n    }\n  }\n}",
+        "parameters": {
+          "temperature": 0.2,
+          "seed": 43,
+          "num_ctx": 16384,
+          "num_predict": 1400
+        },
+        "metrics": {
+          "latency_s": 12.711122874985449,
+          "first_content_chunk_s": 8.250857667066157,
+          "input_tokens": 4335,
+          "output_tokens": 210,
+          "generation_tokens_per_s": 47.08494842180222,
+          "load_s": 0.003685791,
+          "api_cost_eur": 0.0,
+          "energy_cost_eur": null
+        },
+        "done_reason": "stop",
+        "provider_terminal": {
+          "model": "llama3.2:3b",
+          "created_at": "2026-10-06T18:32:28.146797Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 12710588208,
+          "load_duration": 3685791,
+          "prompt_eval_count": 4335,
+          "prompt_eval_cached_count": 137,
+          "prompt_eval_duration": 7899257000,
+          "eval_count": 210,
+          "eval_duration": 4460024000
+        },
+        "status": "ok",
+        "score": {
+          "json_valid": true,
+          "schema_valid": true,
+          "field_accuracy": 0.6,
+          "quote_validity": 1.0,
+          "critical_errors": [
+            "population",
+            "defect_percent"
+          ],
+          "details": [
+            {
+              "field": "campaign",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "24V-436",
+              "actual": {
+                "value": "24V-436",
+                "page": 1,
+                "quote": "NHTSA Recall No. : 24V-436"
+              }
+            },
+            {
+              "field": "manufacturer",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Chrysler (FCA US, LLC)",
+              "actual": {
+                "value": "Chrysler (FCA US, LLC)",
+                "page": 1,
+                "quote": "Manufacturer Name : Chrysler (FCA US, LLC)"
+              }
+            },
+            {
+              "field": "population",
+              "correct": false,
+              "quote_valid": true,
+              "expected": 1033433,
+              "actual": {
+                "value": "1,033,433",
+                "page": 1,
+                "quote": "Number of potentially involved : 1,033,433"
+              }
+            },
+            {
+              "field": "defect_percent",
+              "correct": false,
+              "quote_valid": true,
+              "expected": 100,
+              "actual": {
+                "value": "100",
+                "page": 1,
+                "quote": "Estimated percentage with defect : 100 %"
+              }
+            },
+            {
+              "field": "supplier",
+              "correct": true,
+              "quote_valid": true,
+              "expected": "Harman",
+              "actual": {
+                "value": "Harman",
+                "page": 7,
+                "quote": "Component Manufacturer   Name : Harman"
+              }
+            }
+          ],
+          "human_review_required": true,
+          "quality_score": null,
+          "automatic_acceptance": false
+        }
+      }
+    ],
+    "aggregates": [
+      {
+        "model": "llama3.2:3b",
+        "task": "chronology",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.3333333333333333,
+        "format_rate": 0.5,
+        "field_accuracy": 0.5,
+        "critical_errors": 4,
+        "latency_median_s": 19.088160541956313,
+        "mean_repeat_range": 0.0
+      },
+      {
+        "model": "llama3.2:3b",
+        "task": "extraction",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 0.8333333333333334,
+        "field_accuracy": 0.6333333333333333,
+        "critical_errors": 8,
+        "latency_median_s": 7.787423603935167,
+        "mean_repeat_range": 0.5
+      },
+      {
+        "model": "llama3.2:3b",
+        "task": "synthesis",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": null,
+        "critical_errors": 0,
+        "latency_median_s": 10.45126035407884,
+        "mean_repeat_range": null
+      },
+      {
+        "model": "qwen3:1.7b",
+        "task": "chronology",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": 0.4,
+        "critical_errors": 15,
+        "latency_median_s": 6.771135437535122,
+        "mean_repeat_range": 0.0
+      },
+      {
+        "model": "qwen3:1.7b",
+        "task": "extraction",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 0.0,
+        "field_accuracy": 0,
+        "critical_errors": 12,
+        "latency_median_s": 3.67967518750811,
+        "mean_repeat_range": 0
+      },
+      {
+        "model": "qwen3:1.7b",
+        "task": "synthesis",
+        "n": 6,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": null,
+        "critical_errors": 0,
+        "latency_median_s": 6.973560749960598,
+        "mean_repeat_range": null
+      },
+      {
+        "model": "regex-labels-v1",
+        "task": "extraction",
+        "n": 2,
+        "distinct_cases": 2,
+        "error_rate": 0.0,
+        "format_rate": 1.0,
+        "field_accuracy": 0.8,
+        "critical_errors": 0,
+        "latency_median_s": 0.00016833352856338024,
+        "mean_repeat_range": null
+      }
+    ],
+    "environment": {
+      "python": "3.12.6",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "machine": "arm64"
+    }
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "extractor": "pypdf",
+  "extractor_version": "6.10.0",
+  "sources": [
+    {
+      "id": "24V720",
+      "campaign": "24V-720",
+      "document_date": "2024-09-27",
+      "title": "Batteries haute tension — Jeep",
+      "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V720-8602.PDF",
+      "split": "dev",
+      "retrieved_at": "2026-10-06",
+      "origin": "NHTSA / manufacturer submission",
+      "synthetic": false,
+      "sha256": "9e53f0a0f6c1a35cd336d7e26d4d4576f9856f0b6164a5e0729478501c573e98",
+      "text_sha256": "7aa4d015befc3455fcc392ee0ecb2906947d9874650df87c34788fb52f5f3168",
+      "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+    },
+    {
+      "id": "24V436",
+      "campaign": "24V-436",
+      "document_date": "2025-01-30",
+      "title": "Caméras de recul — FCA",
+      "url": "https://static.nhtsa.gov/odi/rcl/2024/RCLRPT-24V436-2012.PDF",
+      "split": "pilot",
+      "retrieved_at": "2026-10-06",
+      "origin": "NHTSA / manufacturer submission",
+      "synthetic": false,
+      "sha256": "04a86ae64f3fbe12eef2dbef246f87aaeb09b2bd15cd44df9d5272efa02dc3ec",
+      "text_sha256": "6e83a29128db6dc28b9b8be5fb0b05ee0bc37fc5bbfe65547a14dc5a7bc8ed30",
+      "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+    },
+    {
+      "id": "19V627",
+      "campaign": "19V-627",
+      "document_date": "2020-06-01",
+      "title": "Airbags passager — Toyota",
+      "url": "https://static.nhtsa.gov/odi/rcl/2019/RCLRPT-19V627-7873.PDF",
+      "split": "pilot",
+      "retrieved_at": "2026-10-06",
+      "origin": "NHTSA / manufacturer submission",
+      "synthetic": false,
+      "sha256": "8a4cfc41a1008fbb1881cf543ebad538e51ce16a0c8b6c3c6a0176882ca97722",
+      "text_sha256": "1eb1e7ed62edf72a1f8c255611b99ff7d5d1a8f68e71094cb7c45e5db61160af",
+      "reuse_status": "Publicly accessible; third-party submission. No blanket redistribution license asserted."
+    }
+  ]
+}
