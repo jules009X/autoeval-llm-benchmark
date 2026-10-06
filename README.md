@@ -1,8 +1,14 @@
 # AutoEval — Benchmark de LLM pour la qualité automobile
 
-**Comparer des modèles locaux sur des rapports réels, avec des résultats que l’on peut examiner et reproduire.**
+**Un projet de APEDOH Senam Amenyo Jules — élève en dernière année d’école d’ingénieur.**
 
-AutoEval transforme des dossiers publics de rappel automobile en tests d’extraction, d’analyse chronologique et de synthèse sourcée. Le projet couvre le parcours **besoin métier → cas de test → notation → exécution → analyse**, dans l’esprit d’un stage de benchmarking de LLM pour les équipes Qualité et Planification du Développement Produit.
+### Pourquoi j’ai lancé AutoEval
+
+Je réalise ce projet personnel dans le cadre de ma préparation à un stage de fin d’études en évaluation de modèles de langage. L’offre Stellantis sur le benchmarking de LLM pour les équipes Qualité et Planification du Développement Produit sert de point de départ : comment comparer les modèles sur des tâches utiles, avec des critères explicites et des résultats vérifiables ?
+
+J’ai choisi un cas d’application accessible et concret : des **rapports publics de rappel automobile**. AutoEval compare Qwen et Llama sur l’extraction de caractéristiques, l’analyse chronologique et la synthèse sourcée. Les modèles tournent localement, sans API payante.
+
+Mon objectif est de relier chaque mesure à une réponse et chaque référence à un document. Le projet couvre ainsi le parcours **besoin métier → cas de test → notation → exécution → analyse**. Ce premier pilote permet d’examiner les erreurs et les contraintes avant d’envisager un usage métier.
 
 > **Version pilote 0.1.0.** Trois rapports authentiques, neuf cas documentés, deux LLM exécutés localement. Les résultats sont réels, mais le corpus reste petit et les références attendent une validation humaine indépendante. Projet personnel sans affiliation à Stellantis, aux constructeurs ou à la NHTSA.
 

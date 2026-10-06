@@ -1,4 +1,15 @@
-# Cadrage métier
+# AutoEval — contexte et démarche du projet
+
+**Projet personnel porté par APEDOH Senam Amenyo Jules, élève en dernière année d’école d’ingénieur.**
+
+## Origine et intention
+
+Je réalise AutoEval dans le cadre de ma préparation à un stage de fin d’études consacré à l’évaluation des modèles de langage. L’offre de stage Stellantis en benchmarking de LLM a orienté la question de départ : comment construire une évaluation utile aux équipes métier, au-delà d’une démonstration de génération de texte ?
+
+Pour travailler sur des données réelles et accessibles, j’ai retenu les rapports publics de rappel automobile de la NHTSA. Le périmètre de ce pilote est l’analyse documentaire : extraire des faits, distinguer une prévision d’un événement et produire une synthèse sourcée. Les deux modèles sont exécutés localement afin de garder l’expérience accessible sans API payante.
+
+Le projet est développé avec une assistance IA. Le dépôt rend visibles le protocole, le code, les sources et les résultats ; les annotations attendent encore une validation humaine indépendante. Il s’agit d’une initiative personnelle, sans mandat ni affiliation à Stellantis, et non d’un projet académique officiellement encadré annoncé comme tel.
+
 
 ## Objectif
 
@@ -39,7 +50,7 @@ La taxonomie de chaque cas précise famille, complexité, contexte, langues, cri
 | Automatisation | Runner Ollama, répétitions, journalisation | Exécution séquentielle locale |
 | Rapport comparatif | Export par tâche et réponse | Pas de conclusion industrielle |
 | Visualisation | Interface statique navigable | Pas de lancement public d'inférence |
-| Documentation | Installation, protocole, données, déploiement | Publication à effectuer |
+| Documentation | Installation, protocole, données, déploiement | Dépôt public ; démonstration hébergée à venir |
 | Recommandations | Analyse des erreurs observées | Extension du corpus nécessaire avant sélection métier |
 
 ## Critères d'acceptation du logiciel
@@ -54,4 +65,4 @@ La taxonomie de chaque cas précise famille, complexité, contexte, langues, cri
 
 ## Étapes nécessaires avant une version de candidature aboutie
 
-Étendre le corpus à davantage de campagnes indépendantes ; faire relire les références ; ajouter une évaluation humaine en aveugle des synthèses ; figer un nouvel ensemble final ; exécuter le protocole ; rédiger une recommandation limitée aux résultats ; publier le dépôt et la démonstration. Ne pas présenter ce premier pilote comme l'ensemble de ces étapes achevées.
+Étendre le corpus à davantage de campagnes indépendantes ; faire relire les références ; ajouter une évaluation humaine en aveugle des synthèses ; figer un nouvel ensemble final ; exécuter le protocole ; rédiger une recommandation limitée aux résultats ; héberger la démonstration (le dépôt est déjà public). Ne pas présenter ce premier pilote comme l'ensemble de ces étapes achevées.
