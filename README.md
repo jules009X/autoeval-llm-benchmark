@@ -2,15 +2,28 @@
 
 **Un projet de APEDOH Senam Amenyo Jules — élève en dernière année d’école d’ingénieur.**
 
-### Pourquoi j’ai lancé AutoEval
+### De mon assistant documentaire à AutoEval
 
-Je réalise ce projet personnel dans le cadre de ma préparation à un stage de fin d’études en évaluation de modèles de langage. L’offre Stellantis sur le benchmarking de LLM pour les équipes Qualité et Planification du Développement Produit sert de point de départ : comment comparer les modèles sur des tâches utiles, avec des critères explicites et des résultats vérifiables ?
+Après un premier projet d’assistant documentaire sur PDF, j’ai souhaité approfondir une question : **comment vérifier qu’une réponse générée est exacte, sourcée et exploitable ?** Mon assistant utilisait la recherche de passages pour contextualiser les réponses. Une limite observée — le mélange d’informations provenant de documents sur plusieurs villes — m’a donné un cas concret pour réfléchir à l’évaluation des modèles.
 
-J’ai choisi un cas d’application accessible et concret : des **rapports publics de rappel automobile**. AutoEval compare Qwen et Llama sur l’extraction de caractéristiques, l’analyse chronologique et la synthèse sourcée. Les modèles tournent localement, sans API payante.
+Avec AutoEval, je poursuis ce travail dans le prolongement de ma formation en **systèmes robotiques et interactifs (SRI)**. Je passe de la construction d’un assistant à la mise en place d’un protocole permettant de comparer ses composants. Ce benchmark est un projet distinct : il évalue des LLM sur des documents fournis, sans reprendre la chaîne de recherche de mon assistant RAG.
 
-Mon objectif est de relier chaque mesure à une réponse et chaque référence à un document. Le projet couvre ainsi le parcours **besoin métier → cas de test → notation → exécution → analyse**. Ce premier pilote permet d’examiner les erreurs et les contraintes avant d’envisager un usage métier.
+### Le scénario métier que j’ai choisi
 
-> **Version pilote 0.1.0.** Trois rapports authentiques, neuf cas documentés, deux LLM exécutés localement. Les résultats sont réels, mais le corpus reste petit et les références attendent une validation humaine indépendante. Projet personnel sans affiliation à Stellantis, aux constructeurs ou à la NHTSA.
+**Mise en situation :** une équipe qualité automobile souhaite utiliser un assistant pour analyser des rapports de rappel. Elle doit extraire des caractéristiques, reconstituer une chronologie et préparer une synthèse sourcée. Avant de choisir un modèle, elle veut savoir quelles informations il restitue correctement, quand il se trompe et combien de temps il met à répondre.
+
+J’ai construit AutoEval autour de ce besoin simulé, avec de **vrais rapports publics de la NHTSA**. Je compare Qwen et Llama exécutés localement, sans API payante. Je conserve les réponses et les échecs pour pouvoir examiner les résultats, plutôt que de m’appuyer uniquement sur une impression de qualité à la lecture.
+
+### Ma démarche
+
+- **Définir des tâches précises :** extraction, chronologie et synthèse, avec des consignes communes aux modèles.
+- **Rendre les références vérifiables :** relier les informations attendues aux pages et citations des documents.
+- **Comparer dans un cadre explicite :** répéter les exécutions, mesurer les temps de réponse et contrôler le format des sorties.
+- **Analyser les limites :** distinguer une réponse bien structurée d’une réponse fidèle et identifier ce qui demande encore une relecture humaine.
+
+Je porte ce projet personnel et le développe avec une assistance IA. Le scénario ne correspond pas à une mission commandée par une entreprise ni à un projet officiellement encadré par mon école.
+
+> **Version pilote 0.1.0.** Trois rapports authentiques, neuf cas documentés, deux LLM exécutés localement. Les résultats sont réels, mais le corpus reste petit et les références attendent une validation humaine indépendante. Projet personnel sans affiliation aux constructeurs ou à la NHTSA.
 
 [Comprendre le projet](docs/PROJECT_BRIEF.md) · [Lire les résultats](docs/PILOT_RESULTS.md) · [Examiner la méthode](docs/METHODOLOGY.md) · [Parcourir la documentation](docs/README.md)
 
@@ -144,9 +157,9 @@ Ces tests valident le **logiciel**. La qualité métier des références et des 
 
 - Réalisé : corpus sourcé, catalogue, runner local, mesures, comparaison par tâche, résultats inspectables et documentation.
 - À compléter : corpus plus large, double annotation, notation humaine des synthèses, nouvel ensemble final, recommandations métier et hébergement public.
-- Hors périmètre actuel : entraînement de modèles, données internes Stellantis, planification interne du développement produit, benchmark sous charge et coût énergétique.
+- Hors périmètre actuel : entraînement de modèles, données internes d’entreprise, planification interne du développement produit, benchmark sous charge et coût énergétique.
 
-Le projet démontre une méthode transférable aux tâches de l’offre ; il ne prétend pas reproduire les processus internes de l’entreprise. [Correspondance détaillée avec le stage](docs/PROJECT_BRIEF.md) · [Feuille de route](docs/ROADMAP.md).
+Ce pilote explore l’analyse documentaire dans un scénario qualité simulé. [Mon parcours, le scénario et les liens avec ma formation](docs/PROJECT_BRIEF.md) · [Feuille de route](docs/ROADMAP.md).
 
 ## Documentation et contribution
 

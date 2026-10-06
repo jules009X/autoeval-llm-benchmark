@@ -4,7 +4,7 @@
 
 ## Pour comprendre le projet et ses résultats
 
-1. [Cadrage métier](PROJECT_BRIEF.md) — besoins supposés, cas d'usage et correspondance avec l'offre de stage.
+1. [Cadrage métier](PROJECT_BRIEF.md) — parcours personnel, scénario qualité simulé et liens avec la formation SRI.
 2. [Rapport du pilote](PILOT_RESULTS.md) — mesures réelles, erreurs observées et conclusions limitées.
 3. [Méthodologie](METHODOLOGY.md) — conditions expérimentales, règles de notation et menaces sur la validité.
 4. [Feuille de route](ROADMAP.md) — ce qui reste à faire avant une version plus représentative.

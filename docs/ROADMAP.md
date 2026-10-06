@@ -39,6 +39,6 @@ Critère de passage : les variantes sont identifiées, leurs résultats conserv�
 - [ ] Publier une démonstration sur un hébergement statique.
 - [ ] Vérifier l'affichage et tous les liens sur l'URL publiée.
 - [ ] Préparer une présentation d'entretien à partir des résultats validés.
-- [ ] Documenter l'extension vers d'autres usages de l'offre : données tabulaires, connaissances d'ingénierie ou tests de code.
+- [ ] Documenter l'extension vers d’autres usages documentaires et techniques : données tabulaires, connaissances d'ingénierie ou tests de code.
 
 Critère de passage : un lecteur extérieur peut installer, consulter les preuves et comprendre ce qui est évalué, sans accès à la machine d'origine.
