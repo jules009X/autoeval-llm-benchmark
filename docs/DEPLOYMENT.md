@@ -27,7 +27,17 @@ Pour préparer le site à partir des résultats déjà présents dans un clone, 
 5. Publier les seuls fichiers de `site/` sur l'hébergement statique choisi.
 6. Vérifier navigation, sources, téléchargement JSON et affichage mobile sur l'URL publiée.
 
-Cette procédure est préparée mais aucun site public n'a été publié. Le serveur local de prévisualisation n'est pas un service de production.
+## GitHub Pages
+
+Adresse de la démonstration : https://jules009x.github.io/autoeval-llm-benchmark/
+
+Le workflow `.github/workflows/pages.yml` génère et publie le dossier `site/` à chaque push sur `main`. Il peut aussi être lancé manuellement depuis Actions → Publish AutoEval demo → Run workflow. Dans Settings → Pages, la source doit être GitHub Actions.
+
+Le job de construction vérifie les résultats enregistrés, teste leur export et contrôle la syntaxe JavaScript. Le job de publication reçoit uniquement les permissions Pages et le jeton temporaire nécessaires au déploiement. Aucun modèle ni corpus PDF n’est téléchargé. Seul le dossier généré est publié.
+
+La démonstration permet de consulter les résultats existants. Les nouvelles inférences restent locales. Pour vérifier une publication, consulter le workflow et son URL de déploiement, puis contrôler les onglets et le téléchargement des résultats.
+
+Un domaine personnalisé pourra être ajouté ultérieurement ; aucun achat n’est requis pour utiliser cette adresse HTTPS.
 
 ## Maintenance
 

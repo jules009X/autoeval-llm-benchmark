@@ -67,7 +67,7 @@ La taxonomie de chaque cas précise famille, complexité, contexte, langues, cri
 | Automatisation | Runner Ollama, répétitions, journalisation | Exécution séquentielle locale |
 | Rapport comparatif | Export par tâche et réponse | Pas de conclusion industrielle |
 | Visualisation | Interface statique navigable | Pas de lancement public d'inférence |
-| Documentation | Installation, protocole, données, déploiement | Dépôt public ; démonstration hébergée à venir |
+| Documentation | Installation, protocole, données, déploiement | Dépôt public et démonstration sur GitHub Pages |
 | Recommandations | Analyse des erreurs observées | Extension du corpus nécessaire avant sélection métier |
 
 ## Critères d'acceptation du logiciel
@@ -82,4 +82,4 @@ La taxonomie de chaque cas précise famille, complexité, contexte, langues, cri
 
 ## Ce que je souhaite approfondir
 
-Étendre le corpus à davantage de campagnes indépendantes ; faire relire les références ; ajouter une évaluation humaine en aveugle des synthèses ; figer un nouvel ensemble final ; exécuter le protocole ; rédiger une recommandation limitée aux résultats ; héberger la démonstration (le dépôt est déjà public). Ne pas présenter ce premier pilote comme l'ensemble de ces étapes achevées.
+Étendre le corpus à davantage de campagnes indépendantes ; faire relire les références ; ajouter une évaluation humaine en aveugle des synthèses ; figer un nouvel ensemble final ; exécuter le protocole ; rédiger une recommandation limitée aux résultats ; maintenir le dépôt et la démonstration publique. Ne pas présenter ce premier pilote comme l'ensemble de ces étapes achevées.

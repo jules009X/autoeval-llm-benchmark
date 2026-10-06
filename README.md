@@ -2,6 +2,8 @@
 
 **Un projet de APEDOH Senam Amenyo Jules — élève en dernière année d’école d’ingénieur.**
 
+[**Voir la démonstration interactive ↗**](https://jules009x.github.io/autoeval-llm-benchmark/) — sans installation ni compte.
+
 ### De mon assistant documentaire à AutoEval
 
 Après un premier projet d’assistant documentaire sur PDF, j’ai souhaité approfondir une question : **comment vérifier qu’une réponse générée est exacte, sourcée et exploitable ?** Mon assistant utilisait la recherche de passages pour contextualiser les réponses. Une limite observée — le mélange d’informations provenant de documents sur plusieurs villes — m’a donné un cas concret pour réfléchir à l’évaluation des modèles.
@@ -53,7 +55,7 @@ python3 scripts/preview_results.py
 python3 -m http.server 8080 --bind 127.0.0.1 --directory site
 ```
 
-Ouvrir [la démonstration locale](http://127.0.0.1:8080). Elle permet de comparer les tâches, filtrer les modèles, lire chaque réponse et examiner les références. `Ctrl+C` arrête le serveur. Le site n’est pas encore hébergé publiquement : cette URL fonctionne sur la machine qui lance la commande.
+Ouvrir [la démonstration locale](http://127.0.0.1:8080). Elle permet de comparer les tâches, filtrer les modèles, lire chaque réponse et examiner les références. `Ctrl+C` arrête le serveur. Cette adresse locale fonctionne sur la machine qui lance la commande. La [démonstration publique](https://jules009x.github.io/autoeval-llm-benchmark/) permet de consulter les mêmes résultats sans installation.
 
 Pour vérifier uniquement la cohérence des résultats fournis :
 
@@ -156,7 +158,7 @@ Ces tests valident le **logiciel**. La qualité métier des références et des 
 ## Périmètre et suite
 
 - Réalisé : corpus sourcé, catalogue, runner local, mesures, comparaison par tâche, résultats inspectables et documentation.
-- À compléter : corpus plus large, double annotation, notation humaine des synthèses, nouvel ensemble final, recommandations métier et hébergement public.
+- À compléter : corpus plus large, double annotation, notation humaine des synthèses, nouvel ensemble final, recommandations métier.
 - Hors périmètre actuel : entraînement de modèles, données internes d’entreprise, planification interne du développement produit, benchmark sous charge et coût énergétique.
 
 Ce pilote explore l’analyse documentaire dans un scénario qualité simulé. [Mon parcours, le scénario et les liens avec ma formation](docs/PROJECT_BRIEF.md) · [Feuille de route](docs/ROADMAP.md).
